@@ -77,15 +77,26 @@ class UzTranslit:
                 return e_map1[word[i]]
         return e_map2[word[i]]
 
+    def __check_change_date(self, cnv_words: list): # kirill->latin da date larga chiziqcha quyish
+        dates = ('yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr')
+        for i in range(len(cnv_words)):
+            if cnv_words[i].lower().startswith(dates):
+                cnv_words[i] = "\*-"+cnv_words[i]
+        return cnv_words
+
 
     def translit(self, text, from_: str = 'cyr', to: str = 'lat'):
         # kirildan lotinga o'tilganda xech qanday baza (exception words) dan foydalanmaymiz, faqat mapping va qoidalar asosida
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
 
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
-        if from_ == "lat":
-            text = text.replace("'", "ʻ")
-            text = text.replace("`", "ʻ")
+        if from_ == "lat":  # latinchadagi o' va g' ni ustilarini bir xilga keltirish
+            text = text.replace("g'", "gʻ")
+            text = text.replace("o'", "oʻ")
+            text = text.replace("g`", "gʻ")
+            text = text.replace("o`", "oʻ")
+            text = text.replace("g’", "gʻ")
+            text = text.replace("o’", "oʻ")
         words = text.split()  # list of words from text
         cnv_words = []  # list of converted words
         for word in words:
@@ -129,9 +140,18 @@ class UzTranslit:
                         cnv_word += word[i]
                     i += 1
             cnv_words.append(cnv_word)
-        return ' '.join(cnv_words)  # return as a list // return cnv_words
+
+        if to == "lat":
+            self.__check_change_date(cnv_words) # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
+
+        text = ' '.join(cnv_words)  # return as a list // return cnv_words
+
+        if to == "lat":
+            text = text.replace(" \*-", "-")
+
+        return text
 
 obj = UzTranslit()
 while True:
     w = input('Suz=')
-    print(obj.translit(w, 'lat', 'cyr'))
+    print(obj.translit(w, 'cyr', 'lat'))
