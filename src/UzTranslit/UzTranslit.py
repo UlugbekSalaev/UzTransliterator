@@ -7,9 +7,8 @@ class UzTranslit:
     __cyr_vowel = []
     __lat_vowel = []
     __nlt_vowel = []
-
+    __cyr_exwords = {}  # Dict from cyr_exwords.csv  for cyrillic exception words
     def __init__(self):
-        # self.__initial_data()
         __data = Mapping()
         self.__cmap['cyr_lat'] = __data.cyr_lat
         self.__cmap['cyr_nlt'] = __data.cyr_nlt
@@ -21,16 +20,12 @@ class UzTranslit:
         self.__lat_vowel = __data.lat_vowel
         self.__nlt_vowel = __data.nlt_vowel
 
-    def __initial_data(self):
-        return ""
-        # print(d.cyr_lat)
-        # print(d.cyr_lat['a'])
-        # print(d.cyr_lat['b'])
-        # print( isinstance(d.cyr_lat['a'], list))
+        # get cyrillic ex words as a dict
+        with open("cyr_exwords.cvs", encoding="utf8") as file:
+            for line in file:
+                x = line.rstrip().split(",", 1)
+                self.__cyr_exwords[x[0]] = x[1]
 
-        # people = {'cyrlat': {'a': 'аа', 'б': 'b', '#': '-'},
-        #          'lat': {'a': 'аа', 'б': 'аа', 'sex': 'Female'}}
-        # print(people['cyr'+'lat']['#'])
 
     def __cyr_rule1(self, word: str, i: int):    # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         if i-1 >= 0 and i+1 < len(word):
@@ -76,6 +71,9 @@ class UzTranslit:
 
 
     def translit(self, text, from_: str = 'cyr', to: str = 'lat'):
+        # kirildan lotinga o'tilganda xech qanday baza (exception words) dan foydalanmaymiz, faqat mapping va qoidalar asosida
+        # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
+
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
         # print(sc_map)
         # N = 4
@@ -93,7 +91,13 @@ class UzTranslit:
                 found = False
                 for j in range(wl - i, 0, -1):
                     chunk = word[i: i + j]
-                    # print(chunk)
+                    # latin->kirilda character_mapping qilmasdan oldin, ushbu suzni exwords dan qidirib, topilsa shunga o'giramiz
+                    if to == "cyr":
+                        if chunk in self.__cyr_exwords:
+                            cnv_word += self.__cyr_exwords[chunk]
+                            found = True
+                            i += j
+                            break
                     if chunk in sc_map:
                         cnv_word += sc_map[chunk]
                         found = True
@@ -101,15 +105,16 @@ class UzTranslit:
                         break
                 if not found:
                     catch_in_rule = False
-                    if word[i] in ['е', 'Е']:   #cyr_rule1
-                        cnv_word += self.__cyr_rule1(word, i)
-                        catch_in_rule = True
-                    if word[i] in ['ц', 'Ц']:   #cyr_rule2
-                        cnv_word += self.__cyr_rule2(word, i)
-                        catch_in_rule = True
-                    if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:   #cyr_rule3 //'Е', 'е',
-                        cnv_word += self.__cyr_rule3(word, i)
-                        catch_in_rule = True
+                    if from_ == "cyr":
+                        if word[i] in ['е', 'Е']:   #cyr_rule1
+                            cnv_word += self.__cyr_rule1(word, i)
+                            catch_in_rule = True
+                        if word[i] in ['ц', 'Ц']:   #cyr_rule2
+                            cnv_word += self.__cyr_rule2(word, i)
+                            catch_in_rule = True
+                        if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:   #cyr_rule3 //'Е', 'е',
+                            cnv_word += self.__cyr_rule3(word, i)
+                            catch_in_rule = True
 
                     if not catch_in_rule:
                         cnv_word += word[i]
@@ -120,4 +125,4 @@ class UzTranslit:
 obj = UzTranslit()
 while True:
     w = input('Suz=')
-    print(obj.translit(w, 'cyr', 'lat'))
+    print(obj.translit(w, 'lat', 'cyr'))
