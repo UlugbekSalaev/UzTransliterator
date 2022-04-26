@@ -5,17 +5,22 @@ class Mapping:
     lat_nlt = {}  # Mapping dictionary for Latin to New Latin
     nlt_cyr = {}  # Mapping dictionary for New Latin to Cyrillic
     nlt_lat = {}  # Mapping dictionary for New Latin Latin
-
+    cyr_vowel = []    # Cyrillic vowels list
+    lat_vowel = []  # Latin vowels list
+    nlt_vowel = []  # NewLatin vowels list
     def __init__(self):
         self.__initial_data()
 
     def __initial_data(self):
+        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю", "Я"]
+        self.lat_vowel = ["a", "i", "e", "u", "o‘", "o", "A", "I", "E", "U", "O‘", "O"]
+        self.nlt_vowel = ["a", "i", "e", "u", "ō", "o", "A", "I", "E", "U", "Ō" "O"]
+
         self.cyr_lat = {
             'А': 'A',
             'Б': 'B',
             'Д': 'D',
             'Э': 'E',
-            'Е': 'E',
             'Ф': 'F',
             'Г': 'G',
             'Ҳ': 'H',
@@ -41,12 +46,15 @@ class Mapping:
             'Ш': 'Sh',
             'Ч': 'Ch',
             'Нг': 'Ng',
+            # Uzbek tildia ish yuritish 47-bet
+            # 'Ё': 'Yo',
+            # 'Ю': 'Yu',
+            # 'Я': 'Ya',
 
             'а': 'a',
             'б': 'b',
             'д': 'd',
             'э': 'e',
-            'е': 'e',
             'ф': 'f',
             'г': 'g',
             'ҳ': 'h',
@@ -73,6 +81,28 @@ class Mapping:
             'ч': 'ch',
             'нг': 'ng',
             'ъ': 'ʼ',
+            # Uzbek tildia ish yuritish 47-bet
+            # 'ё': 'yo',
+            # 'ю': 'yu',
+            # 'я': 'ya',
+
+            'ь': '', # independent of upper/lower case
+
+            # rule объект [Kitob: o'zbek adabiy tili ish yuritish daftari 43,47-bet]
+            'ъе': 'ye',
+            'ъё': 'yo',
+            'ъя': 'ya',
+            'ъю': 'yu',
+            'ье': 'ye',
+            'ьё': 'yo',
+            'ья': 'ya',
+            'ью': 'yu',
+
+            # 'Е': 'E, Ye', cyr_rule1 qoidasi asosida 47-bet
+            # 'е': 'e, ye', cyr_rule1 qoidasi asosida 47-bet
+
+            # 'Ц': 'S, TS', cyr_rule2 qoidasi asosida 48-bet
+            # 'ц': 's, ts', cyr_rule2 qoidasi asosida 48-bet
         }
         self.cyr_nlt = {
 
@@ -108,6 +138,11 @@ class Mapping:
             'Sh': 'Ш',
             'Ch': 'Ч',
             'Ng': 'Нг',
+            #47-bet qodiasi
+            'Ye': 'Е',
+            'Yo': 'Ё',
+            'Yu': 'Ю',
+            'Ya': 'Я',
 
             'a': 'а',
             'b': 'б',
@@ -139,6 +174,11 @@ class Mapping:
             'ch': 'ч',
             'ng': 'нг',
             'ʼ': 'ъ',
+            # 47-bet qoidasi
+            'ye': 'е',
+            'yo': 'ё',
+            'yu': 'ю',
+            'ya': 'я',
         }
 
         self.lat_nlt = {
