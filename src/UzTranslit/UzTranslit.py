@@ -69,21 +69,26 @@ class UzTranslit:
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
+    def __lat_rule1(self, word: str, i: int):    # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
+        e_map1 = {'e': 'е', 'E': 'Е'} # latin -> kiril
+        e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
+        if i-1 >= 0 and i+1 < len(word):
+            if word[i-1] not in self.__lat_vowel and word[i+1] not in self.__lat_vowel:
+                return e_map1[word[i]]
+        return e_map2[word[i]]
+
 
     def translit(self, text, from_: str = 'cyr', to: str = 'lat'):
         # kirildan lotinga o'tilganda xech qanday baza (exception words) dan foydalanmaymiz, faqat mapping va qoidalar asosida
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
 
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
-        # print(sc_map)
-        # N = 4
+        if from_ == "lat":
+            text = text.replace("'", "ʻ")
+            text = text.replace("`", "ʻ")
         words = text.split()  # list of words from text
         cnv_words = []  # list of converted words
         for word in words:
-            # print(word)
-            # grams = [word[i:i + N] for i in range(len(word) - N + 1)]
-            # print(grams)
-
             cnv_word = ""  # converted version of the current word
             i = 0
             wl = len(word)
@@ -114,6 +119,10 @@ class UzTranslit:
                             catch_in_rule = True
                         if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:   #cyr_rule3 //'Е', 'е',
                             cnv_word += self.__cyr_rule3(word, i)
+                            catch_in_rule = True
+                    if from_ == "lat":
+                        if word[i] in ['e', 'E']:   #lat_rule1
+                            cnv_word += self.__lat_rule1(word, i)
                             catch_in_rule = True
 
                     if not catch_in_rule:

@@ -112,7 +112,6 @@ class Mapping:
             'A': 'А',
             'B': 'Б',
             'D': 'Д',
-            'E': 'Э',
             'F': 'Ф',
             'G': 'Г',
             'H': 'Ҳ',
@@ -143,11 +142,12 @@ class Mapping:
             'Yo': 'Ё',
             'Yu': 'Ю',
             'Ya': 'Я',
+            'Yoʻ': 'Йў',
+            'YOʻ': 'ЙЎ',
 
             'a': 'а',
             'b': 'б',
             'd': 'д',
-            'e': 'э',
             'f': 'ф',
             'g': 'г',
             'h': 'ҳ',
@@ -179,6 +179,10 @@ class Mapping:
             'yo': 'ё',
             'yu': 'ю',
             'ya': 'я',
+            'yoʻ': 'йў',
+
+            # 'E': 'Э', # lat_rule1 qoidasi asosida 47-bet
+            # 'e': 'э', # lat_rule1 qoidasi asosida 47-bet
         }
 
         self.lat_nlt = {
