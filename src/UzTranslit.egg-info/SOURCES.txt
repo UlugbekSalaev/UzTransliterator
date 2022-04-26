@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/UzTranslit/Data.py
+src/UzTranslit/UzTranslit.py
+src/UzTranslit/__init__.py
+src/UzTranslit.egg-info/PKG-INFO
+src/UzTranslit.egg-info/SOURCES.txt
+src/UzTranslit.egg-info/dependency_links.txt
+src/UzTranslit.egg-info/top_level.txt
