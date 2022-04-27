@@ -3,7 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\src\UzTranslit\cyr_exwords.cvs">
+        <entry key="\src\UzTranslit\cyr_exwords.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\UzTranslit\lat_exwords.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

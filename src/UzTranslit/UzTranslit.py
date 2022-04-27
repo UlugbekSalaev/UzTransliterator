@@ -21,7 +21,7 @@ class UzTranslit:
         self.__nlt_vowel = __data.nlt_vowel
 
         # get cyrillic ex words as a dict
-        with open("cyr_exwords.cvs", encoding="utf8") as file:
+        with open("cyr_exwords.csv", encoding="utf8") as file:
             for line in file:
                 x = line.rstrip().split(",", 1)
                 self.__cyr_exwords[x[0]] = x[1]
@@ -79,9 +79,9 @@ class UzTranslit:
 
     def __check_change_date(self, cnv_words: list): # kirill->latin da date larga chiziqcha quyish
         dates = ('yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr')
-        for i in range(len(cnv_words)):
-            if cnv_words[i].lower().startswith(dates):
-                cnv_words[i] = "\*-"+cnv_words[i]
+        for i in range(1,len(cnv_words)):
+            if cnv_words[i].lower().startswith(dates) and cnv_words[i-1].isdigit():
+                cnv_words[i] = "\*-"+cnv_words[i]   # "\*-" quyib keyin " \*" ni o'chirib tashaymiz
         return cnv_words
 
 

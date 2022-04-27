@@ -104,8 +104,94 @@ class Mapping:
             # 'Ц': 'S, TS', cyr_rule2 qoidasi asosida 48-bet
             # 'ц': 's, ts', cyr_rule2 qoidasi asosida 48-bet
         }
-        self.cyr_nlt = {
 
+        self.cyr_nlt = {
+            'А': 'A',
+            'Б': 'B',
+            'Д': 'D',
+            'Э': 'E',
+            'Ф': 'F',
+            'Г': 'G',
+            'Ҳ': 'H',
+            'И': 'I',
+            'Ж': 'J',
+            'К': 'K',
+            'Л': 'L',
+            'М': 'M',
+            'Н': 'N',
+            'О': 'O',
+            'П': 'P',
+            'Қ': 'Q',
+            'Р': 'R',
+            'С': 'S',
+            'Т': 'T',
+            'У': 'U',
+            'В': 'V',
+            'Х': 'X',
+            'Й': 'Y',
+            'З': 'Z',
+            'Ў': 'Ō',
+            'Ғ': 'Ḡ',
+            'Ш': 'Ş',
+            'Ч': 'Ç',
+            'Нг': 'Ng',
+            # Uzbek tildia ish yuritish 47-bet
+            # 'Ё': 'Yo',
+            # 'Ю': 'Yu',
+            # 'Я': 'Ya',
+
+            'а': 'a',
+            'б': 'b',
+            'д': 'd',
+            'э': 'e',
+            'ф': 'f',
+            'г': 'g',
+            'ҳ': 'h',
+            'и': 'i',
+            'ж': 'j',
+            'к': 'k',
+            'л': 'l',
+            'м': 'm',
+            'н': 'n',
+            'о': 'o',
+            'п': 'p',
+            'қ': 'q',
+            'р': 'r',
+            'с': 's',
+            'т': 't',
+            'у': 'u',
+            'в': 'v',
+            'х': 'x',
+            'й': 'y',
+            'з': 'z',
+            'ў': 'ō',
+            'ғ': 'ḡ',
+            'ш': 'ş',
+            'ч': 'ç',
+            'нг': 'ng',
+            'ъ': 'ʼ',
+            # Uzbek tildia ish yuritish 47-bet
+            # 'ё': 'yo',
+            # 'ю': 'yu',
+            # 'я': 'ya',
+
+            'ь': '',  # independent of upper/lower case
+
+            # rule объект [Kitob: o'zbek adabiy tili ish yuritish daftari 43,47-bet]
+            'ъе': 'ye',
+            'ъё': 'yo',
+            'ъя': 'ya',
+            'ъю': 'yu',
+            'ье': 'ye',
+            'ьё': 'yo',
+            'ья': 'ya',
+            'ью': 'yu',
+
+            # 'Е': 'E, Ye', cyr_rule1 qoidasi asosida 47-bet
+            # 'е': 'e, ye', cyr_rule1 qoidasi asosida 47-bet
+
+            # 'Ц': 'S, TS', cyr_rule2 qoidasi asosida 48-bet
+            # 'ц': 's, ts', cyr_rule2 qoidasi asosida 48-bet
         }
 
         self.lat_cyr = {
