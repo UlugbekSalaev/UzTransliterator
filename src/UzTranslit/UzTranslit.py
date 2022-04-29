@@ -8,6 +8,7 @@ class UzTranslit:
     __lat_vowel = []
     __nlt_vowel = []
     __cyr_exwords = {}  # Dict from cyr_exwords.csv  for cyrillic exception words
+    __lat_exwords = {}  # Dict from lat_exwords.csv  for latin exception words
     def __init__(self):
         __data = Mapping()
         self.__cmap['cyr_lat'] = __data.cyr_lat
@@ -25,6 +26,11 @@ class UzTranslit:
             for line in file:
                 x = line.rstrip().split(",", 1)
                 self.__cyr_exwords[x[0]] = x[1]
+        # get latin ex words as a dict
+        with open("lat_exwords.csv", encoding="utf8") as file:
+            for line in file:
+                x = line.rstrip().split(",", 1)
+                self.__lat_exwords[x[0]] = x[1]
 
 
     def __cyr_rule1(self, word: str, i: int):    # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
@@ -90,6 +96,7 @@ class UzTranslit:
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
 
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
+
         if from_ == "lat":  # latinchadagi o' va g' ni ustilarini bir xilga keltirish
             text = text.replace("g'", "gʻ")
             text = text.replace("o'", "oʻ")
@@ -97,6 +104,7 @@ class UzTranslit:
             text = text.replace("o`", "oʻ")
             text = text.replace("g’", "gʻ")
             text = text.replace("o’", "oʻ")
+
         words = text.split()  # list of words from text
         cnv_words = []  # list of converted words
         for word in words:
@@ -114,6 +122,13 @@ class UzTranslit:
                             found = True
                             i += j
                             break
+                    if to == "lat":
+                        if chunk in self.__lat_exwords:
+                            cnv_word += self.__lat_exwords[chunk]
+                            found = True
+                            i += j
+                            break
+
                     if chunk in sc_map:
                         cnv_word += sc_map[chunk]
                         found = True
@@ -153,5 +168,9 @@ class UzTranslit:
 
 obj = UzTranslit()
 while True:
-    w = input('Suz=')
-    print(obj.translit(w, 'cyr', 'lat'))
+    lang1 = input("lang1=")
+    lang2 = input("lang2=")
+    w = ""
+    while w != "stop":
+        w = input('Suz=')
+        print(obj.translit(w, lang1, lang2))
