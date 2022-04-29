@@ -88,7 +88,14 @@ class UzTranslit:
         for i in range(1,len(cnv_words)):
             if cnv_words[i].lower().startswith(dates) and cnv_words[i-1].isdigit():
                 cnv_words[i] = "\*-"+cnv_words[i]   # "\*-" quyib keyin " \*" ni o'chirib tashaymiz
-        return cnv_words
+        #return cnv_words       #list is a mutable object, so it is sent as a refrence to the object
+
+    def __check_change_second_uppercase(self, cnv_words: list): # SHamol ->Shamol
+        twoletters = {'SH': 'Sh', 'CH': 'Ch'}
+        for i in range(0,len(cnv_words)):
+            if cnv_words[i][:2] in twoletters and cnv_words[i][2:].islower():
+                cnv_words[i] = twoletters[cnv_words[i][:2]] + cnv_words[i][2:]   # SHamol ->Shamol
+        #return cnv_words
 
 
     def translit(self, text, from_: str = 'cyr', to: str = 'lat'):
@@ -156,8 +163,9 @@ class UzTranslit:
                     i += 1
             cnv_words.append(cnv_word)
 
-        if to == "lat":
+        if to in ["lat", "nlt"]:
             self.__check_change_date(cnv_words) # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
+            self.__check_change_second_uppercase(cnv_words) # latin va newLatinda Birinchidagi harf katta bulsa SHamol shaklida qaytganda Shamol qilib yuborish uchun
 
         text = ' '.join(cnv_words)  # return as a list // return cnv_words
 
