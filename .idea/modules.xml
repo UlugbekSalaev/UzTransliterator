@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/UzTranslit.iml" filepath="$PROJECT_DIR$/.idea/UzTranslit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UzTransliterator.iml" filepath="$PROJECT_DIR$/.idea/UzTransliterator.iml" />
     </modules>
   </component>
 </project>

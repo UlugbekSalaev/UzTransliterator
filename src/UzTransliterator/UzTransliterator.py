@@ -1,8 +1,7 @@
-# bu pypi upload uchun ishlaydi .Data varianti
-#from .Data import Mapping
-from src.UzTranslit.Data import Mapping
+from .Data import Mapping   # use on pypi upload publishing   .Data version
+#from src.UzTransliterator.Data import Mapping    # use on local running
 
-class UzTranslit:
+class UzTransliterator:
     __cmap = {}
     __cyr_vowel = []
     __lat_vowel = []
@@ -174,7 +173,7 @@ class UzTranslit:
 
         return text
 
-obj = UzTranslit()
+obj = UzTransliterator()
 while True:
     lang1 = input("lang1=")
     lang2 = input("lang2=")
