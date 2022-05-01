@@ -5,7 +5,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">UzTranslit | State-of-the-art machine transliteration tool for Uzbek language, Cyrillic<>Latin<>NewLatin</h3>
+  <h3 align="center">UzTransliterator | State-of-the-art machine transliteration tool for Uzbek language, Cyrillic<>Latin<>NewLatin</h3>
   <p align="center">
     The main goal of this paper is to present a state-of-the-art machine transliteration tool between three common scripts used in low-resource Uzbek language: old Cyrillic, currently official Latin, and newly announced New-Latin alphabets, which was created using a combination of rule-based and statistical approaches. The created tool is available as an open-source Python package, as well as a web-based application including a public API
   </p>
@@ -28,7 +28,21 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Installation
+<code>pip install UzTransliterator</code>
 
+### Using
+<code>from UzTransliterator import UzTransliterator</code>
+<br><code>obj = UzTransliterator.UzTransliterator()</code>
+<br><code>print(obj.transliterate("маткаб", from_="cyr", to="lat"))</code>
+
+###Options 
+<code>from_='cyr', to='lat'</code><br>
+<code>from_='cyr', to='nlt'</code><br>
+<code>from_='lat', to='cyr'</code><br>
+<code>from_='lat', to='nlt'</code><br>
+<code>from_='nlt', to='cyr'</code><br>
+<code>from_='nlt', to='lat'</code><br>
 
 ### Built With
 
