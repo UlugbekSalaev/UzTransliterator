@@ -35,8 +35,8 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 <code>from UzTransliterator import UzTransliterator</code>
 <br><code>obj = UzTransliterator.UzTransliterator()</code>
 <br><code>print(obj.transliterate("маткаб", from_="cyr", to="lat"))</code>
-
-###Options 
+<br>Output: <code>maktab</code>
+### Options 
 <code>from_='cyr', to='lat'</code><br>
 <code>from_='cyr', to='nlt'</code><br>
 <code>from_='lat', to='cyr'</code><br>
