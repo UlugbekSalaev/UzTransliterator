@@ -44,6 +44,13 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 <code>from_='nlt', to='cyr'</code><br>
 <code>from_='nlt', to='lat'</code><br>
 
+### Note
+New latin alphabet has some difference than Latin. Main changing is presented in following as format Latin - New Latin:
+<br>“G‘, g‘” — “Ḡ, ḡ”
+<br>“O‘, o‘” — “Ō, ō”
+<br>“Sh, sh” — “Ş, ş”
+<br>“Ch, ch” — “Ç ç”
+
 ### Built With
 
 Programming language used:

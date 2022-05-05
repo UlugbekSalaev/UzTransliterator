@@ -742,3 +742,33 @@ class UzTransliterator:
             text = text.replace(" \*-", "-")    #date dagi uzgarihslar uchun
 
         return text
+
+obj = UzTransliterator()
+# coding=utf-8
+tt=['авиамодель','автомобиль','акварель','алкоголь','альбом','альманах','альпинизм','альпинист','ангьор','ансамбль','апельсин','апрель','артель','артикль','асфальт','ателье','бандероль','батальон','билль','бильярд','большевик','брильянт','бульдозер','валерьянка',
+    'фильм','фильмоскоп','фильмотека','фильтр','фольклор','фонарь','фортепьяно','фотоальбом','фьючерс','цельсий','циркуль','честь','шинель','шпатель','шпиндель','шуьла','эмаль','эмульция','юрисконсульт','якорь','январь']
+#for i in tt:
+#    print(obj.transliterate(i)+","+
+'''
+with open("lotin.txt", encoding="utf8") as file:
+    lotin = file.readlines()
+    lotin = [line.rstrip() for line in lotin]
+with open("kirill.txt", encoding="utf8") as file:
+    kiril = file.readlines()
+    kiril = [line.rstrip() for line in kiril]
+
+with open("latcyr.txt", "w", encoding="utf8") as file:
+  for item in kiril:
+    cyr = obj.transliterate(item, "cyr", "nlt")
+    if cyr not in lotin:
+      file.write(item+"\t"+cyr+"\n")
+'''
+while True:
+    lang1 = input("lang1=")
+    lang2 = input("lang2=")
+    w = ""
+    while w != "stop":
+        w = input('Suz=')
+        print(obj.transliterate(w, from_=lang1, to=lang2))
+
+#qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
