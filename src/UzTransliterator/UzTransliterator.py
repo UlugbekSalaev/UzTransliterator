@@ -16,8 +16,7 @@ class _CharMapping:
         self.__initial_data()
 
     def __initial_data(self):
-        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю",
-                          "Я"]
+        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю", "Я"]
         self.lat_vowel = ["a", "i", "e", "u", "o‘", "o", "A", "I", "E", "U", "O‘", "O"]
         self.nlt_vowel = ["a", "i", "e", "u", "ō", "o", "A", "I", "E", "U", "Ō" "O"]
 
@@ -336,8 +335,8 @@ class _CharMapping:
             'X': 'X',
             'Y': 'Y',
             'Z': 'Z',
-            'Oʻ': 'Ō',
-            'Gʻ': 'Ḡ',
+            'O‘': 'Ō',
+            'G‘': 'Ḡ',
             'SH': 'Ş',
             'Sh': 'Ş',
             'CH': 'Ç',
@@ -351,8 +350,8 @@ class _CharMapping:
             # 'Yo': 'Ё',
             # 'Yu': 'Ю',
             # 'Ya': 'Я',
-            # 'Yoʻ': 'Йў',
-            # 'YOʻ': 'ЙЎ',
+            # 'Yo‘': 'Йў',
+            # 'YO‘': 'ЙЎ',
 
             'a': 'a',
             'b': 'b',
@@ -377,8 +376,8 @@ class _CharMapping:
             'x': 'x',
             'y': 'y',
             'z': 'z',
-            'oʻ': 'ō',
-            'gʻ': 'ḡ',
+            'o‘': 'ō',
+            'g‘': 'ḡ',
             'sh': 'ş',
             'ch': 'ç',
 
@@ -502,8 +501,8 @@ class _CharMapping:
             'X': 'X',
             'Y': 'Y',
             'Z': 'Z',
-            'Ō': 'Oʻ',
-            'Ḡ': 'Gʻ',
+            'Ō': 'O‘',
+            'Ḡ': 'G‘',
             'Ş': 'SH',
             'Ç': 'CH',
             # 'Ng': 'Нг',
@@ -538,8 +537,8 @@ class _CharMapping:
             'x': 'x',
             'y': 'y',
             'z': 'z',
-            'ō': 'oʻ',
-            'ḡ': 'gʻ',
+            'ō': 'o‘',
+            'ḡ': 'g‘',
             'ş': 'sh',
             'ç': 'ch',
             # 'ng': 'нг',
@@ -669,13 +668,15 @@ class UzTransliterator:
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
 
         if from_ == "lat":  # latinchadagi o' va g' ni ustilarini bir xilga keltirish
-            text = text.replace("g'", "gʻ")
-            text = text.replace("o'", "oʻ")
-            text = text.replace("g`", "gʻ")
-            text = text.replace("o`", "oʻ")
-            text = text.replace("g’", "gʻ")
-            text = text.replace("o’", "oʻ")
-
+            text = text.replace("g'", "g‘")
+            text = text.replace("o'", "o‘")
+            text = text.replace("g`", "g‘")
+            text = text.replace("o`", "o‘")
+            text = text.replace("g’", "g‘")
+            text = text.replace("o’", "o‘")
+            text = text.replace("gʻ", "g‘")
+            text = text.replace("oʻ", "o‘")
+            
             text = text.replace("'", "ʼ") #boshqa belgilarni ъ ni kodiga utirish
 
         words = text.split()  # list of words from text
