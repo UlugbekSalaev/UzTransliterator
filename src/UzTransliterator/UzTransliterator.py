@@ -249,7 +249,9 @@ class _CharMapping:
             'Y': 'Й',
             'Z': 'З',
             'Oʻ': 'Ў',
+            'O‘': 'Ў',
             'Gʻ': 'Ғ',
+            'G‘': 'Ғ',
             'SH': 'Ш',
             'Sh': 'Ш',
             'CH': 'Ч',
@@ -269,6 +271,7 @@ class _CharMapping:
             'Yu': 'Ю',
             'Ya': 'Я',
             'Yoʻ': 'Йў',
+            'Yo‘': 'Йў',
 
             'a': 'а',
             'b': 'б',
@@ -294,18 +297,23 @@ class _CharMapping:
             'y': 'й',
             'z': 'з',
             'oʻ': 'ў',
+            'o‘': 'ў',
             'gʻ': 'ғ',
+            'g‘': 'ғ',
             'sh': 'ш',
             'ch': 'ч',
             'ng': 'нг',
             'ngʻ': 'нғ',
+            'ng‘': 'нғ',
             'ʼ': 'ъ',
+            '’': 'ъ',
             # 47-bet qoidasi
             'ye': 'е',
             'yo': 'ё',
             'yu': 'ю',
             'ya': 'я',
             'yoʻ': 'йў',
+            'yo‘': 'йў',
 
             # 'E': 'Э', # lat_rule1 qoidasi asosida 47-bet
             # 'e': 'э', # lat_rule1 qoidasi asosida 47-bet
@@ -742,4 +750,3 @@ class UzTransliterator:
             text = text.replace(" \*-", "-")    #date dagi uzgarihslar uchun
 
         return text
-
