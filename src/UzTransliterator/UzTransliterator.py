@@ -52,6 +52,12 @@ class _CharMapping:
             'Ч': 'CH',
             'Нг': 'Ng',
             'НГ': 'NG',
+
+            'ЙЮ': 'YYU',
+            'Йю': 'Yyu',
+            'ЙЁ': 'YYO',
+            'Йё': 'Yyo',
+
             # Uzbek tildia ish yuritish 47-bet
             # 'Ё': 'Yo',
             # 'Ю': 'Yu',
@@ -87,6 +93,10 @@ class _CharMapping:
             'ч': 'ch',
             'нг': 'ng',
             'ъ': 'ʼ',
+
+            'йю': 'yyu',
+            'йё': 'yyo',
+
             # Uzbek tildia ish yuritish 47-bet
             # 'ё': 'yo',
             # 'ю': 'yu',
@@ -246,6 +256,8 @@ class _CharMapping:
             'Ch': 'Ч',
             'NG': 'НГ',
             'Ng': 'Нг',
+            'NGʻ': 'НҒ',
+            'Ngʻ': 'Нғ',
             # 47-bet qodiasi
             'YE': 'Е',
             'YO': 'Ё',
@@ -286,6 +298,7 @@ class _CharMapping:
             'sh': 'ш',
             'ch': 'ч',
             'ng': 'нг',
+            'ngʻ': 'нғ',
             'ʼ': 'ъ',
             # 47-bet qoidasi
             'ye': 'е',
@@ -328,6 +341,9 @@ class _CharMapping:
             'Sh': 'Ş',
             'CH': 'Ç',
             'Ch': 'Ç',
+
+            'E': 'E',
+
             # 'Ng': 'Нг',
             # 47-bet qodiasi
             # 'Ye': 'Е',
@@ -364,6 +380,9 @@ class _CharMapping:
             'gʻ': 'ḡ',
             'sh': 'ş',
             'ch': 'ç',
+
+            'e': 'e',
+
             # 'ng': 'нг',
             # 'ʼ': 'ъ',
             # 47-bet qoidasi
@@ -574,28 +593,25 @@ class UzTransliterator:
                 self.__lat_exwords[x[0]] = x[1]
 
     def __cyr_rule1(self, word: str, i: int):  # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
+        e_map1 = {'е': 'e', 'Е': 'E'}
+        e_map2 = {'е': 'ye', 'Е': 'YE'}
         if i - 1 >= 0 and i + 1 < len(word):
             if word[i - 1] not in self.__cyr_vowel and word[i + 1] not in self.__cyr_vowel:
-                if word[i].islower():
-                    return 'e'
-                else:
-                    return 'E'
-        if word[i].islower():
-            return 'ye'
-        else:
-            return 'Ye'
+                return e_map1[word[i]]
+        if i - 1 >= 0: # археолог->arxyeolog xatoni yuqatish uchun
+            if word[i - 1] not in self.__cyr_vowel:
+                return e_map1[word[i]]
+        if i == len(word) - 1: # last char alifbe->алифбэ->алифбе
+            return e_map1[word[i]]
+        return e_map2[word[i]]
 
     def __cyr_rule2(self, word: str, i: int):  # 2ta unli orasida kelgan ц harfi ts harfi shaklida o'giriladi
+        s_map1 = {'ц': 'ts', 'Ц': 'TS'}
+        s_map2 = {'ц': 's',  'Ц': 'S'}
         if i - 1 >= 0 and i + 1 < len(word):
             if word[i - 1] in self.__cyr_vowel and word[i + 1] in self.__cyr_vowel:
-                if word[i].islower():
-                    return 'ts'
-                else:
-                    return 'TS'
-        if word[i].islower():
-            return 's'
-        else:
-            return 'S'
+                return s_map1[word[i]]
+        return s_map2[word[i]]
 
     def __cyr_rule3(self, word: str,
                     i: int):  # [е,ё,ю,я] harflari undosh tovushlardan keyin kelganda [e,o,u,a] shaklida o'giriladi, masalan sentabr, istisno holatlar mavjud:samalyot
@@ -611,23 +627,28 @@ class UzTransliterator:
             'ю': 'yu', 'Ю': 'Yu',
             'я': 'ya', 'Я': 'Ya',
         }
+
         if i - 1 >= 0:
-            if word[i - 1] not in self.__cyr_vowel:  # bulardan oldingi harf undosh bulsa
+            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['-','-','.',',','?','!']:  # bulardan oldingi harf undosh bulsa
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
-    def __lat_rule1(self, word: str, i: int):  # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
+    def __lat_rule1(self, word: str, i: int): # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         e_map1 = {'e': 'е', 'E': 'Е'}  # latin -> kiril
         e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
         if i - 1 >= 0 and i + 1 < len(word):
             if word[i - 1] not in self.__lat_vowel and word[i + 1] not in self.__lat_vowel:
                 return e_map1[word[i]]
+            if word[i + 1] in self.__lat_vowel: #arxeolog(lat)->архэолог(cyr)->археолог(cyr)
+                return e_map1[word[i]]
+        if i == len(word) - 1: # if e stands in the last character then
+            return e_map1[word[i]]
+
         return e_map2[word[i]]
 
     def __check_change_date(self, cnv_words: list):  # kirill->latin da date larga chiziqcha quyish
         dates = (
-        'yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr',
-        'noyabr', 'dekabr')
+        'yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr')
         for i in range(1, len(cnv_words)):
             if cnv_words[i].lower().startswith(dates) and cnv_words[i - 1].isdigit():
                 cnv_words[i] = "\*-" + cnv_words[i]  # "\*-" quyib keyin " \*" ni o'chirib tashaymiz
@@ -641,7 +662,7 @@ class UzTransliterator:
         # return cnv_words
 
     def transliterate(self, text, from_: str = 'cyr', to: str = 'lat'):
-        # kirildan lotinga o'tilganda xech qanday baza (exception words) dan foydalanmaymiz, faqat mapping va qoidalar asosida
+        # kirildan lotinga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki qoidalarga buysunmaydigan joylari bor
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
 
         sc_map = self.__cmap[from_ + '_' + to]  # selected script mapping
@@ -654,7 +675,10 @@ class UzTransliterator:
             text = text.replace("g’", "gʻ")
             text = text.replace("o’", "oʻ")
 
+            text = text.replace("'", "ʼ") #boshqa belgilarni ъ ni kodiga utirish
+
         words = text.split()  # list of words from text
+        #words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
         cnv_words = []  # list of converted words
         for word in words:
             cnv_word = ""  # converted version of the current word
@@ -664,14 +688,16 @@ class UzTransliterator:
                 found = False
                 for j in range(wl - i, 0, -1):
                     chunk = word[i: i + j]
+                    # print("chunk="+chunk)
                     # latin->kirilda character_mapping qilmasdan oldin, ushbu suzni exwords dan qidirib, topilsa shunga o'giramiz
-                    if to == "cyr":
+                    if to == "cyr" and i == 0: # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk in self.__cyr_exwords:
                             cnv_word += self.__cyr_exwords[chunk]
+                            # print("cnv="+cnv_word)
                             found = True
                             i += j
                             break
-                    if to in ["lat", "nlt"]:
+                    if to in ["lat", "nlt"] and i == 0: # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk in self.__lat_exwords:
                             cnv_word += self.__lat_exwords[chunk]
                             found = True
@@ -680,6 +706,7 @@ class UzTransliterator:
 
                     if chunk in sc_map:
                         cnv_word += sc_map[chunk]
+                        # print("cnv2="+cnv_word)
                         found = True
                         i += j
                         break
@@ -712,19 +739,6 @@ class UzTransliterator:
         text = ' '.join(cnv_words)  # return as a list // return cnv_words
 
         if to in ["lat", "nlt"]:
-            text = text.replace(" \*-", "-")
+            text = text.replace(" \*-", "-")    #date dagi uzgarihslar uchun
 
         return text
-
-
-
-'''
-obj = UzTransliterator()
-while True:
-    lang1 = input("lang1=")
-    lang2 = input("lang2=")
-    w = ""
-    while w != "stop":
-        w = input('Suz=')
-        print(obj.transliterate(w, from_=lang1, to=lang2))
-'''
