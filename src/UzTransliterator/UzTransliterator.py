@@ -16,7 +16,8 @@ class _CharMapping:
         self.__initial_data()
 
     def __initial_data(self):
-        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю", "Я"]
+        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю",
+                          "Я"]
         self.lat_vowel = ["a", "i", "e", "u", "o‘", "o", "A", "I", "E", "U", "O‘", "O"]
         self.nlt_vowel = ["a", "i", "e", "u", "ō", "o", "A", "I", "E", "U", "Ō" "O"]
 
@@ -47,8 +48,8 @@ class _CharMapping:
             'З': 'Z',
             'Ў': 'O‘',
             'Ғ': 'G‘',
-            'Ш': 'SH',
-            'Ч': 'CH',
+            'Ш': 'Sh',
+            'Ч': 'Ch',
             'Нг': 'Ng',
             'НГ': 'NG',
 
@@ -91,9 +92,8 @@ class _CharMapping:
             'ш': 'sh',
             'ч': 'ch',
             'нг': 'ng',
-            'ъ': 'ʼ',
+            'ъ': '’',
 
-            
             'йю': 'yyu',
             'йё': 'yyo',
 
@@ -158,6 +158,12 @@ class _CharMapping:
             'Ш': 'Ş',
             'Ч': 'Ç',
             # 'Нг': 'Ng',
+
+            'ЙЮ': 'YYU',
+            'Йю': 'Yyu',
+            'ЙЁ': 'YYO',
+            'Йё': 'Yyo',
+
             # Uzbek tildia ish yuritish 47-bet
             # 'Ё': 'Yo',
             # 'Ю': 'Yu',
@@ -192,7 +198,10 @@ class _CharMapping:
             'ш': 'ş',
             'ч': 'ç',
             # 'нг': 'ng',
-            'ъ': 'ʼ',
+            'ъ': '’',
+            'йю': 'yyu',
+            'йё': 'yyo',
+
             # Uzbek tildia ish yuritish 47-bet
             # 'ё': 'yo',
             # 'ю': 'yu',
@@ -299,7 +308,7 @@ class _CharMapping:
             'ch': 'ч',
             'ng': 'нг',
             'ng‘': 'нғ',
-            'ʼ': 'ъ',
+            '’': 'ъ',
             # 47-bet qoidasi
             'ye': 'е',
             'yo': 'ё',
@@ -465,7 +474,7 @@ class _CharMapping:
             'ş': 'ш',
             'ç': 'ч',
             # 'ng': 'нг',
-            'ʼ': 'ъ',
+            '’': 'ъ',
             # 47-bet qoidasi
             'ye': 'е',
             'yo': 'ё',
@@ -503,8 +512,8 @@ class _CharMapping:
             'Z': 'Z',
             'Ō': 'O‘',
             'Ḡ': 'G‘',
-            'Ş': 'SH',
-            'Ç': 'CH',
+            'Ş': 'Sh',
+            'Ç': 'Ch',
             # 'Ng': 'Нг',
             # 47-bet qodiasi
             # 'Ye': 'Е',
@@ -564,7 +573,7 @@ class UzTransliterator:
     __lat_exwords = {}  # Dict from lat_exwords.csv  for latin exception words
 
     def __init__(self):
-        __data = _CharMapping() # create object from char_mapping class
+        __data = _CharMapping()  # create object from char_mapping class
         self.__cmap['cyr_lat'] = __data.cyr_lat
         self.__cmap['cyr_nlt'] = __data.cyr_nlt
         self.__cmap['lat_cyr'] = __data.lat_cyr
@@ -575,11 +584,11 @@ class UzTransliterator:
         self.__lat_vowel = __data.lat_vowel
         self.__nlt_vowel = __data.nlt_vowel
 
-        dirname = os.path.dirname(__file__) +"/"
+        dirname = os.path.dirname(__file__) + "/"
         cyr_exword_file = os.path.join(dirname + "cyr_exwords.csv")
         lat_exword_file = os.path.join(dirname + "lat_exwords.csv")
-        #cyr_exword_file = cyr_exword_file.replace("//", "/")
-        #lat_exword_file = lat_exword_file.replace("//", "/")
+        # cyr_exword_file = cyr_exword_file.replace("//", "/")
+        # lat_exword_file = lat_exword_file.replace("//", "/")
 
         # get cyrillic ex words as a dict
         with open(cyr_exword_file, encoding="utf8") as file:
@@ -594,27 +603,29 @@ class UzTransliterator:
 
     def __cyr_rule1(self, word: str, i: int):  # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         e_map1 = {'е': 'e', 'Е': 'E'}
-        e_map2 = {'е': 'ye', 'Е': 'YE'}
-        if i - 1 >= 0 and i + 1 < len(word):
-            if word[i - 1] not in self.__cyr_vowel and word[i + 1] not in self.__cyr_vowel:
-                return e_map1[word[i]]
-        if i - 1 >= 0: # археолог->arxyeolog xatoni yuqatish uchun
-            if word[i - 1] not in self.__cyr_vowel:
-                return e_map1[word[i]]
-        if i == len(word) - 1: # last char alifbe->алифбэ->алифбе
+        e_map2 = {'е': 'ye', 'Е': 'Ye'}
+        if i == len(word) - 1:  # last char alifbe->алифбэ->алифбе
             return e_map1[word[i]]
+
+        if i - 1 >= 0 and i + 1 < len(word):
+            if word[i - 1] not in self.__cyr_vowel and word[i + 1] not in self.__cyr_vowel and word[i - 1] not in ['(','"','-', '-', '.', ',', '?','!']:
+                return e_map1[word[i]]
+
+        if i - 1 >= 0:  # археолог->arxyeolog xatoni yuqatish uchun
+            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['(','"','-', '-', '.', ',', '?','!']:
+                return e_map1[word[i]]
+
         return e_map2[word[i]]
 
     def __cyr_rule2(self, word: str, i: int):  # 2ta unli orasida kelgan ц harfi ts harfi shaklida o'giriladi
         s_map1 = {'ц': 'ts', 'Ц': 'TS'}
-        s_map2 = {'ц': 's',  'Ц': 'S'}
+        s_map2 = {'ц': 's', 'Ц': 'S'}
         if i - 1 >= 0 and i + 1 < len(word):
-            if word[i - 1] in self.__cyr_vowel and word[i + 1] in self.__cyr_vowel:
+            if word[i - 1] in self.__cyr_vowel and word[i + 1] in self.__cyr_vowel and word[i - 1] not in ['(','"','-', '-', '.', ',', '?','!']:
                 return s_map1[word[i]]
         return s_map2[word[i]]
 
-    def __cyr_rule3(self, word: str,
-                    i: int):  # [е,ё,ю,я] harflari undosh tovushlardan keyin kelganda [e,o,u,a] shaklida o'giriladi, masalan sentabr, istisno holatlar mavjud:samalyot
+    def __cyr_rule3(self, word: str, i: int):  # [е,ё,ю,я] harflari undosh tovushlardan keyin kelganda [e,o,u,a] shaklida o'giriladi, masalan sentabr, istisno holatlar mavjud:samalyot
         y_map1 = {
             'е': 'е', 'Е': 'E',
             'ё': 'o', 'Ё': 'O',
@@ -628,37 +639,49 @@ class UzTransliterator:
             'я': 'ya', 'Я': 'Ya',
         }
 
-        if i - 1 >= 0:
-            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['-','-','.',',','?','!']:  # bulardan oldingi harf undosh bulsa
+        if i == len(word) - 1:  # last char alifbe->алифбэ->алифбе
+            return y_map2[word[i]]
+
+        if i - 1 >= 0 and i != len(word) - 1:
+            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['(','"','-', '-', '.', ',', '?','!']:  # bulardan oldingi harf undosh bulsa
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
-    def __lat_rule1(self, word: str, i: int): # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
+    def __lat_rule1(self, word: str,
+                    i: int):  # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         e_map1 = {'e': 'е', 'E': 'Е'}  # latin -> kiril
         e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
         if i - 1 >= 0 and i + 1 < len(word):
             if word[i - 1] not in self.__lat_vowel and word[i + 1] not in self.__lat_vowel:
                 return e_map1[word[i]]
-            if word[i + 1] in self.__lat_vowel: #arxeolog(lat)->архэолог(cyr)->археолог(cyr)
+            if word[i + 1] in self.__lat_vowel:  # arxeolog(lat)->архэолог(cyr)->археолог(cyr)
                 return e_map1[word[i]]
-        if i == len(word) - 1: # if e stands in the last character then
+        if i == len(word) - 1:  # if e stands in the last character then
             return e_map1[word[i]]
 
         return e_map2[word[i]]
 
     def __check_change_date(self, cnv_words: list):  # kirill->latin da date larga chiziqcha quyish
         dates = (
-        'yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr')
+            'yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr',
+            'noyabr', 'dekabr')
         for i in range(1, len(cnv_words)):
             if cnv_words[i].lower().startswith(dates) and cnv_words[i - 1].isdigit():
                 cnv_words[i] = "\*-" + cnv_words[i]  # "\*-" quyib keyin " \*" ni o'chirib tashaymiz
         # return cnv_words       #list is a mutable object, so it is sent as a refrence to the object
 
     def __check_change_second_uppercase(self, cnv_words: list):  # SHamol ->Shamol
-        twoletters = {'SH': 'Sh', 'CH': 'Ch'}
+        twoletters = {'SH': 'Sh', 'CH': 'Ch', 'YE': 'Ye', 'YO': 'Yo', 'YU': 'Yu', 'YA': 'Ya'}
         for i in range(0, len(cnv_words)):
-            if cnv_words[i][:2] in twoletters and cnv_words[i][2:].islower():
-                cnv_words[i] = twoletters[cnv_words[i][:2]] + cnv_words[i][2:]  # SHamol ->Shamol
+            ind = 0
+            while ind < len(cnv_words[i]):
+                if not cnv_words[i][ind].isalpha():
+                    ind += 1
+                else:
+                    break
+
+            if cnv_words[i][ind:ind+2] in twoletters and cnv_words[i][ind + 2:].islower():
+                cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind+2]] + cnv_words[i][ind+2:]  # SHamol ->Shamol
         # return cnv_words
 
     def transliterate(self, text, from_: str = 'cyr', to: str = 'lat'):
@@ -676,11 +699,12 @@ class UzTransliterator:
             text = text.replace("o’", "o‘")
             text = text.replace("gʻ", "g‘")
             text = text.replace("oʻ", "o‘")
-            
-            text = text.replace("'", "ʼ") #boshqa belgilarni ъ ni kodiga utirish
+
+            text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
 
         words = text.split()  # list of words from text
-        #words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
+        # words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
         cnv_words = []  # list of converted words
         for word in words:
             cnv_word = ""  # converted version of the current word
@@ -688,21 +712,32 @@ class UzTransliterator:
             wl = len(word)
             while i < wl:
                 found = False
+                starting = True
                 for j in range(wl - i, 0, -1):
                     chunk = word[i: i + j]
                     # print("chunk="+chunk)
                     # latin->kirilda character_mapping qilmasdan oldin, ushbu suzni exwords dan qidirib, topilsa shunga o'giramiz
-                    if to == "cyr" and i == 0: # i==0 bu suzni boshidagi qismini csv dan qidirish
-                        if chunk in self.__cyr_exwords:
-                            cnv_word += self.__cyr_exwords[chunk]
+                    if to == "cyr" and starting:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                        if chunk.lower() in self.__cyr_exwords:
+                            res = self.__cyr_exwords[chunk.lower()]
+                            if chunk != chunk.lower():
+                                cnv_word += res.capitalize()
+                            else:
+                                cnv_word += res
                             # print("cnv="+cnv_word)
                             found = True
+                            starting = False
                             i += j
                             break
-                    if to in ["lat", "nlt"] and i == 0: # i==0 bu suzni boshidagi qismini csv dan qidirish
-                        if chunk in self.__lat_exwords:
-                            cnv_word += self.__lat_exwords[chunk]
+                    if to in ["lat", "nlt"] and starting:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                        if chunk.lower() in self.__lat_exwords:
+                            res = self.__lat_exwords[chunk.lower()]
+                            if chunk != chunk.lower():
+                                cnv_word += res.capitalize()
+                            else:
+                                cnv_word += res
                             found = True
+                            starting = False
                             i += j
                             break
 
@@ -710,6 +745,7 @@ class UzTransliterator:
                         cnv_word += sc_map[chunk]
                         # print("cnv2="+cnv_word)
                         found = True
+                        starting = False
                         i += j
                         break
                 if not found:
@@ -731,7 +767,12 @@ class UzTransliterator:
 
                     if not catch_in_rule:
                         cnv_word += word[i]
+
+                    if not word[i].isalpha():
+                        starting = True
+
                     i += 1
+
             cnv_words.append(cnv_word)
 
         if to in ["lat", "nlt"]:
@@ -741,6 +782,7 @@ class UzTransliterator:
         text = ' '.join(cnv_words)  # return as a list // return cnv_words
 
         if to in ["lat", "nlt"]:
-            text = text.replace(" \*-", "-")    #date dagi uzgarihslar uchun
+            text = text.replace(" \*-", "-")  # date dagi uzgarihslar uchun
 
         return text
+
