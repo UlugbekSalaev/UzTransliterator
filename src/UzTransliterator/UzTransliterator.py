@@ -811,7 +811,7 @@ for item in cyr:
     if tr not in lat:
         print(item+"\t"+tr)
 '''
-
+'''
 while True:
     lang1 = input("lang1=")
     lang2 = input("lang2=")
@@ -819,5 +819,5 @@ while True:
     while w != "stop":
         w = input('Suz=')
         print(obj.transliterate(w, from_=lang1, to=lang2))
-
+'''
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
