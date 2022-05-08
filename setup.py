@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="UzTransliterator",
-    version="0.0.28",
+    version="0.0.29",
     author="Ulugbek Salaev, Elmurod Kuriyozov",
     author_email="ulugbek0302@gmail.com, e.kuriyozov@udc.es",
     description="UzTransliterator | Transliteration tool for Uzbek language - Cyrillic<>Latin<>NewLatin",
