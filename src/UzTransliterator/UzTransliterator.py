@@ -702,6 +702,7 @@ class UzTransliterator:
 
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
 
         words = text.split()  # list of words from text
         # words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
@@ -785,39 +786,4 @@ class UzTransliterator:
             text = text.replace(" \*-", "-")  # date dagi uzgarihslar uchun
 
         return text
-
-obj = UzTransliterator()
-# coding=utf-8
-tt=['авиамодель','автомобиль','акварель','алкоголь','альбом','альманах','альпинизм','альпинист','ангьор','ансамбль','апельсин','апрель','артель','артикль','асфальт','ателье','бандероль','батальон','билль','бильярд','большевик','брильянт','бульдозер','валерьянка',
-    'фильм','фильмоскоп','фильмотека','фильтр','фольклор','фонарь','фортепьяно','фотоальбом','фьючерс','цельсий','циркуль','честь','шинель','шпатель','шпиндель','шуьла','эмаль','эмульция','юрисконсульт','якорь','январь']
-#for i in tt:
-#    print(obj.transliterate(i)+","+
-
-'''
-with open('lat.txt', 'r', encoding='utf8') as file:
-    lat = file.read().replace('\n', '')
-    lat = lat.split()
-
-with open('cyr.txt', 'r', encoding='utf8') as file:
-    cyr = file.read().replace('\n', '')
-    cyr = cyr.split()
-
-with open('nlt.txt', 'r', encoding='utf8') as file:
-    nlt = file.read().replace('\n', '')
-    nlt = nlt.split()
-
-for item in cyr:
-    tr = obj.transliterate(item, "cyr", "lat")
-    if tr not in lat:
-        print(item+"\t"+tr)
-'''
-'''
-while True:
-    lang1 = input("lang1=")
-    lang2 = input("lang2=")
-    w = ""
-    while w != "stop":
-        w = input('Suz=')
-        print(obj.transliterate(w, from_=lang1, to=lang2))
-'''
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
