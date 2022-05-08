@@ -713,12 +713,13 @@ class UzTransliterator:
             wl = len(word)
             while i < wl:
                 found = False
-                starting = True
+                search_ex = True
                 for j in range(wl - i, 0, -1):
                     chunk = word[i: i + j]
                     # print("chunk="+chunk)
+
                     # latin->kirilda character_mapping qilmasdan oldin, ushbu suzni exwords dan qidirib, topilsa shunga o'giramiz
-                    if to == "cyr" and starting:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                    if to == "cyr" and search_ex:  # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk.lower() in self.__cyr_exwords:
                             res = self.__cyr_exwords[chunk.lower()]
                             if chunk != chunk.lower():
@@ -727,10 +728,11 @@ class UzTransliterator:
                                 cnv_word += res
                             # print("cnv="+cnv_word)
                             found = True
-                            starting = False
                             i += j
                             break
-                    if to in ["lat", "nlt"] and starting:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                        if chunk[0].isalpha():
+                            search_ex = False
+                    if to in ["lat", "nlt"] and search_ex:  # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk.lower() in self.__lat_exwords:
                             res = self.__lat_exwords[chunk.lower()]
                             if chunk != chunk.lower():
@@ -738,17 +740,18 @@ class UzTransliterator:
                             else:
                                 cnv_word += res
                             found = True
-                            starting = False
                             i += j
                             break
+                        if chunk[0].isalpha():
+                            search_ex = False
 
                     if chunk in sc_map:
                         cnv_word += sc_map[chunk]
                         # print("cnv2="+cnv_word)
                         found = True
-                        starting = False
                         i += j
                         break
+
                 if not found:
                     catch_in_rule = False
                     if from_ == "cyr":
@@ -769,9 +772,6 @@ class UzTransliterator:
                     if not catch_in_rule:
                         cnv_word += word[i]
 
-                    if not word[i].isalpha():
-                        starting = True
-
                     i += 1
 
             cnv_words.append(cnv_word)
@@ -786,4 +786,5 @@ class UzTransliterator:
             text = text.replace(" \*-", "-")  # date dagi uzgarihslar uchun
 
         return text
+
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
