@@ -31,7 +31,7 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 ## Installation
 ### Python
 <code>pip install UzTransliterator</code>
-<br><b>Source:</b> https://pypi.org/project/UzTransliterator/
+<br><br><b>Source:</b> https://pypi.org/project/UzTransliterator/
 <br><br><b>Using</b><br>
 <code>from UzTransliterator import UzTransliterator</code>
 <br><code>obj = UzTransliterator.UzTransliterator()</code>
