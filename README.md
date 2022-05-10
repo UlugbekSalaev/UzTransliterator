@@ -79,16 +79,3 @@ These are the major libraries used inside Python:
 Distributed under the MIT LICENSE. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-We are grateful for these resources and tutorials for making this repository possible:
-
-* [GitHub Readme template](https://github.com/othneildrew/Best-README-Template)
-* [Visual Studio Code](https://code.visualstudio.com/)
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
