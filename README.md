@@ -28,10 +28,10 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Installation
+## Installation
+### Python
 <code>pip install UzTransliterator</code>
-
-### Using
+<br><br><b>Using</b><br>
 <code>from UzTransliterator import UzTransliterator</code>
 <br><code>obj = UzTransliterator.UzTransliterator()</code>
 <br><code>print(obj.transliterate("маткаб", from_="cyr", to="lat"))</code>
@@ -44,7 +44,15 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 <code>from_='nlt', to='cyr'</code><br>
 <code>from_='nlt', to='lat'</code><br>
 
-### Note
+### Web Interface
+ https://nlp.urdu.uz/?page=translit
+    
+### API
+URL: https://uz-translit.herokuapp.com/translit
+<br><br><b>Methods:</b> GET, POST<br><br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
+<br><br><b>Example URL:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
+
+## Note
 New latin alphabet has some difference than Latin. Main changing is presented in following as format Latin - New Latin:
 <br>“G‘, g‘” — “Ḡ, ḡ”
 <br>“O‘, o‘” — “Ō, ō”
