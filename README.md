@@ -51,7 +51,7 @@ In this paper, we presented a Python code, a web tool, and an API created for th
     
 ### API
 <b>URL:</b> https://uz-translit.herokuapp.com/translit
-<br><b>Methods:</b> GET, POST<br><br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
+<br><b>Methods:</b> GET, POST<br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
 <br><b>Example Request:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
 
 ## Note
