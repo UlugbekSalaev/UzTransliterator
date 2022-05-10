@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div align="center">
-<img src="https://github.com/elmurod1202/UzTranslit/blob/master/src/web-uinterface.png?raw=true" width = "600" Alt = "Web-interface of the tool">
+<img src="https://github.com/UlugbekSalaev/UzTransliterator/blob/main/src/web-uinterface.png?raw=true" width = "600" Alt = "Web-interface of the tool">
 </div>
 
 
@@ -45,7 +45,7 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 <code>from_='nlt', to='lat'</code><br>
 
 ### Web Interface
- https://nlp.urdu.uz/?page=translit
+ https://nlp.urdu.uz/?menu=translit
     
 ### API
 <b>URL:</b> https://uz-translit.herokuapp.com/translit
