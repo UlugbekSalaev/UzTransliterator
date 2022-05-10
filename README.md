@@ -31,12 +31,13 @@ In this paper, we presented a Python code, a web tool, and an API created for th
 ## Installation
 ### Python
 <code>pip install UzTransliterator</code>
-<br><br><b>Source:</b> https://pypi.org/project/UzTransliterator/
+<br><b>Source:</b> https://pypi.org/project/UzTransliterator/
 <br><br><b>Using</b><br>
 <code>from UzTransliterator import UzTransliterator</code>
 <br><code>obj = UzTransliterator.UzTransliterator()</code>
 <br><code>print(obj.transliterate("маткаб", from_="cyr", to="lat"))</code>
 <br>Output: <code>maktab</code>
+
 ### Options 
 <code>from_='cyr', to='lat'</code><br>
 <code>from_='cyr', to='nlt'</code><br>
@@ -50,8 +51,8 @@ In this paper, we presented a Python code, a web tool, and an API created for th
     
 ### API
 <b>URL:</b> https://uz-translit.herokuapp.com/translit
-<br><br><b>Methods:</b> GET, POST<br><br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
-<br><br><b>Example Request:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
+<br><b>Methods:</b> GET, POST<br><br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
+<br><b>Example Request:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
 
 ## Note
 New latin alphabet has some difference than Latin. Main changing is presented in following as format Latin - New Latin:
