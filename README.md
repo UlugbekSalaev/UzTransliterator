@@ -48,9 +48,9 @@ In this paper, we presented a Python code, a web tool, and an API created for th
  https://nlp.urdu.uz/?page=translit
     
 ### API
-URL: https://uz-translit.herokuapp.com/translit
+<b>URL:</b> https://uz-translit.herokuapp.com/translit
 <br><br><b>Methods:</b> GET, POST<br><br><b>Parametres:</b> <code>text:str</code>, <code>from_:str</code>, <code>to:str</code>
-<br><br><b>Example URL:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
+<br><br><b>Example Request:</b> https://uz-translit.herokuapp.com/translit?text=мактаб&from_=cyr&to=lat
 
 ## Note
 New latin alphabet has some difference than Latin. Main changing is presented in following as format Latin - New Latin:
