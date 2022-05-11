@@ -700,6 +700,15 @@ class UzTransliterator:
             text = text.replace("gʻ", "g‘")
             text = text.replace("oʻ", "o‘")
 
+            text = text.replace("G'", "G‘")
+            text = text.replace("O'", "O‘")
+            text = text.replace("G`", "G‘")
+            text = text.replace("O`", "O‘")
+            text = text.replace("G’", "G‘")
+            text = text.replace("O’", "O‘")
+            text = text.replace("Gʻ", "G‘")
+            text = text.replace("Oʻ", "O‘")
+
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
