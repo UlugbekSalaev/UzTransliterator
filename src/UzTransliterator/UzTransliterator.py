@@ -796,4 +796,15 @@ class UzTransliterator:
 
         return text
 
+'''
+obj = UzTransliterator()
+while True:
+    lang1 = input("lang1=")
+    lang2 = input("lang2=")
+    w = ""
+    while w != "stop":
+        w = input('Suz=')
+        print(obj.translit(w, lang1, lang2)) 
+        print(obj.transliterate(w, from_=lang1, to=lang2))
+''' 
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
