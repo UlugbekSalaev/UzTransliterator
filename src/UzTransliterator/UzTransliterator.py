@@ -647,8 +647,7 @@ class UzTransliterator:
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
-    def __lat_rule1(self, word: str,
-                    i: int):  # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
+    def __lat_rule1(self, word: str, i: int):  # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         e_map1 = {'e': 'е', 'E': 'Е'}  # latin -> kiril
         e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
         if i - 1 >= 0 and i + 1 < len(word):
@@ -718,6 +717,12 @@ class UzTransliterator:
         cnv_words = []  # list of converted words
         for word in words:
             cnv_word = ""  # converted version of the current word
+
+            if word.isupper(): # check whether token is Roman number {I, V, X, L, C, D, M}
+                if 0 not in [c in {'I', 'V', 'X', 'L', 'C', 'D', 'M'} for c in word]:
+                    cnv_words.append(word)  # add itself to converted words list
+                    continue   # skip converted process if current word is Roman number
+
             i = 0
             wl = len(word)
             while i < wl:
@@ -796,7 +801,7 @@ class UzTransliterator:
 
         return text
 
-'''
+
 obj = UzTransliterator()
 while True:
     lang1 = input("lang1=")
@@ -804,7 +809,6 @@ while True:
     w = ""
     while w != "stop":
         w = input('Suz=')
-        print(obj.translit(w, lang1, lang2)) 
         print(obj.transliterate(w, from_=lang1, to=lang2))
-''' 
+
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
