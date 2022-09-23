@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/UzTransliterator/UzTransliterator.py
+src/UzTransliterator/__init__.py
+src/UzTransliterator.egg-info/PKG-INFO
+src/UzTransliterator.egg-info/SOURCES.txt
+src/UzTransliterator.egg-info/dependency_links.txt
+src/UzTransliterator.egg-info/top_level.txt
