@@ -650,6 +650,13 @@ class UzTransliterator:
     def __lat_rule1(self, word: str, i: int):  # latin -> kiril # 2ta undosh orasida kelgan е harfi e harfi shaklida buladi
         e_map1 = {'e': 'е', 'E': 'Е'}  # latin -> kiril
         e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
+
+        ni = i  # temp variable, delete starting symbols to correctly convert of (endi  -> (энди
+        for ind in range(ni):
+            if not word[ind].isalpha():
+                i -= 1
+                word = word[1:]
+
         if i - 1 >= 0 and i + 1 < len(word):
             if word[i - 1] not in self.__lat_vowel and word[i + 1] not in self.__lat_vowel:
                 return e_map1[word[i]]
@@ -683,6 +690,18 @@ class UzTransliterator:
                 cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind+2]] + cnv_words[i][ind+2:]  # SHamol ->Shamol
         # return cnv_words
 
+    def check_global_rules(self, word: str):
+        # global rule 1: whether Roman number
+        if word.isupper():  # check whether token is Roman number {I, V, X, L, C, D, M}
+            if 0 not in [c in {'I', 'V', 'X', 'L', 'C', 'D', 'M'} for c in word]:
+                return True
+
+        # global rule 2: whether url
+        if word.lower().startswith(("http", "www")):
+            return True
+
+        return False
+
     def transliterate(self, text, from_: str = 'cyr', to: str = 'lat'):
         # kirildan lotinga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki qoidalarga buysunmaydigan joylari bor
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
@@ -712,16 +731,15 @@ class UzTransliterator:
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
 
-        words = text.split()  # list of words from text
+        tokens = text.split()  # list of words from text
         # words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
         cnv_words = []  # list of converted words
-        for word in words:
+        for word in tokens:
             cnv_word = ""  # converted version of the current word
 
-            if word.isupper(): # check whether token is Roman number {I, V, X, L, C, D, M}
-                if 0 not in [c in {'I', 'V', 'X', 'L', 'C', 'D', 'M'} for c in word]:
-                    cnv_words.append(word)  # add itself to converted words list
-                    continue   # skip converted process if current word is Roman number
+            if self.check_global_rules(word):
+                cnv_words.append(word)  # add itself to converted words list
+                continue  # skip converted process if current word is Roman number
 
             i = 0
             wl = len(word)
@@ -803,6 +821,7 @@ class UzTransliterator:
 
 
 obj = UzTransliterator()
+
 while True:
     lang1 = input("lang1=")
     lang2 = input("lang2=")
@@ -812,3 +831,26 @@ while True:
         print(obj.transliterate(w, from_=lang1, to=lang2))
 
 #qoida: lotin->kiril e oxorda kelsa e buladi, Э емас alifbe
+for i in range(1):
+    from_ = "lat"
+    to = "cyr"
+    with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
+        text = f.read().rstrip()
+        tokens = text.split()
+        print(len(text))
+        print(len(tokens))
+
+    with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+to+'.txt', encoding='utf8') as f:
+        text_to = f.read().rstrip()
+        tokens_to = text_to.split()
+        print(len(text_to))
+        print(len(tokens_to))
+        cnt, total = 0, 0
+    for ind in range(len(tokens)):
+        res = obj.transliterate(tokens[ind], from_=from_, to=to)
+        if res not in tokens_to:
+            print(tokens[ind], res)
+            cnt += 1
+        total += 1
+    print(total, cnt, cnt/total*100)
+
