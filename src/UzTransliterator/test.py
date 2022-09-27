@@ -14,7 +14,7 @@ obj = UzTransliterator.UzTransliterator()
 
 total_token, total_char, total_time = 0, 0, 0
 total_wrong, total_correct = 0, 0
-for i in range(0,65):
+for i in range(59,60):
     from_ = "lat"
     to = "cyr"
     with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
@@ -42,7 +42,7 @@ for i in range(0,65):
     # print("--------Error tokens----------")
     for token in tokens_result:
         if token not in tokens_to:
-            # print(token)
+            print(token)
             wrong += 1
         else:
             tokens_to.remove(token)

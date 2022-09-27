@@ -1,8 +1,6 @@
 # from .Data import Mapping   # use on pypi upload publishing   .Data version
 # from src.src.Data import Mapping    # use on local running
 import re
-import string
-
 
 class _CharMapping:
     cyr_lat = {}  # Mapping dictionary for Cyrillic to Latin
