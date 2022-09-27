@@ -1,5 +1,8 @@
 # from .Data import Mapping   # use on pypi upload publishing   .Data version
 # from src.src.Data import Mapping    # use on local running
+import re
+import string
+
 
 class _CharMapping:
     cyr_lat = {}  # Mapping dictionary for Cyrillic to Latin
@@ -737,7 +740,11 @@ class UzTransliterator:
                 return True
 
         # global rule 2: whether url
-        if word.lower().startswith(("http", "www")):
+
+        # if word.lower().startswith(("http", "www")):
+        #     return True
+        url = ('.org', '.com', '.net', 'http', 'www')
+        if any(ext in word.lower() for ext in url):
             return True
 
         return False
@@ -771,8 +778,10 @@ class UzTransliterator:
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
 
-        tokens = text.split()  # list of words from text
-        # words = re.split('; |, |\*|\n |-|!|', text) # list of words from text
+        # tokens = text.split()  # list of words from text
+        # tokens = re.split('; |, |\*|\n |-|!|', text) # list of words from text
+        tokens = re.findall(r'\S+|\n|\t', text)
+        # print(tokens)
         cnv_words = []  # list of converted words
         for word in tokens:
             cnv_word = ""  # converted version of the current word
@@ -783,15 +792,23 @@ class UzTransliterator:
 
             i = 0
             wl = len(word)
-            while i < wl:
-                found = False
-                search_ex = True
-                for j in range(wl - i, 0, -1):
-                    chunk = word[i: i + j]
+            # found = False
+            # search_ex = True
+
+            for c in range(wl):  # check token is start by symbols, add it to converted string
+                i = c
+                if word[c].isalpha():
+                    break
+                else:
+                    cnv_word += word[c]
+
+            if i < wl-1:
+                for j in range(wl, 2, -1):  # search starting chunk of the string from exword
+                    chunk = word[i:j]   # word[i:i+j]
                     # print(i, j, "chunk=", chunk)
 
                     # latin->kirilda character_mapping qilmasdan oldin, ushbu suzni exwords dan qidirib, topilsa shunga o'giramiz
-                    if to == "cyr" and search_ex:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                    if to == "cyr":  # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk.lower() in self.__cyr_exwords:
                             res = self.__cyr_exwords[chunk.lower()]
                             if chunk != chunk.lower():
@@ -804,7 +821,7 @@ class UzTransliterator:
                             break
                         # if chunk[0].isalpha() and chunk[-1].isalpha():
                         #     search_ex = False
-                    if to in ["lat", "nlt"] and search_ex:  # i==0 bu suzni boshidagi qismini csv dan qidirish
+                    if to in ["lat", "nlt"]:  # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk.lower() in self.__lat_exwords:
                             res = self.__lat_exwords[chunk.lower()]
                             if chunk != chunk.lower():
@@ -817,34 +834,41 @@ class UzTransliterator:
                         # if chunk[0].isalpha() and chunk[-1].isalpha():
                         #     search_ex = False
 
-                    if chunk in sc_map:
-                        cnv_word += sc_map[chunk]
-                        # print("cnv2="+cnv_word)
-                        found = True
-                        i += j
-                        break
+                while i < wl:
+                    found = False
+                    # for j in range(wl - i, 0, -1):
+                    for j in range(3, 0, -1):   # chunk made from 3 character
+                        chunk = word[i:i+j]
+                        # print(i, j, "chunk1=", chunk)
 
-                if not found:
-                    catch_in_rule = False
-                    if from_ == "cyr":
-                        if word[i] in ['е', 'Е']:  # cyr_rule1
-                            cnv_word += self.__cyr_rule1(word, i)
-                            catch_in_rule = True
-                        if word[i] in ['ц', 'Ц']:  # cyr_rule2
-                            cnv_word += self.__cyr_rule2(word, i)
-                            catch_in_rule = True
-                        if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:  # cyr_rule3 //'Е', 'е',
-                            cnv_word += self.__cyr_rule3(word, i)
-                            catch_in_rule = True
-                    if from_ == "lat":
-                        if word[i] in ['e', 'E']:  # lat_rule1
-                            cnv_word += self.__lat_rule1(word, i)
-                            catch_in_rule = True
+                        if chunk in sc_map:
+                            cnv_word += sc_map[chunk]
+                            # print("cnv2="+cnv_word)
+                            found = True
+                            i += j
+                            break
 
-                    if not catch_in_rule:
-                        cnv_word += word[i]
+                    if not found:
+                        catch_in_rule = False
+                        if from_ == "cyr":
+                            if word[i] in ['е', 'Е']:  # cyr_rule1
+                                cnv_word += self.__cyr_rule1(word, i)
+                                catch_in_rule = True
+                            if word[i] in ['ц', 'Ц']:  # cyr_rule2
+                                cnv_word += self.__cyr_rule2(word, i)
+                                catch_in_rule = True
+                            if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:  # cyr_rule3 //'Е', 'е',
+                                cnv_word += self.__cyr_rule3(word, i)
+                                catch_in_rule = True
+                        if from_ == "lat":
+                            if word[i] in ['e', 'E']:  # lat_rule1
+                                cnv_word += self.__lat_rule1(word, i)
+                                catch_in_rule = True
 
-                    i += 1
+                        if not catch_in_rule:
+                            cnv_word += word[i]
+
+                        i += 1
 
             cnv_words.append(cnv_word)
 
