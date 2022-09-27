@@ -17,8 +17,7 @@ class _CharMapping:
         self.__initial_data()
 
     def __initial_data(self):
-        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю",
-                          "Я"]
+        self.cyr_vowel = ["а", "и", "э", "у", "ў", "о", "е", "ё", "ю", "я", "А", "И", "Э", "У", "Ў", "О", "Е", "Ё", "Ю", "Я"]
         self.lat_vowel = ["a", "i", "e", "u", "o‘", "o", "A", "I", "E", "U", "O‘", "O"]
         self.nlt_vowel = ["a", "i", "e", "u", "ō", "o", "A", "I", "E", "U", "Ō" "O"]
 
@@ -654,8 +653,10 @@ class UzTransliterator:
             return y_map2[word[i]]
 
         if i - 1 >= 0 and i != len(word) - 1:
-            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['(', '"', '-', '-', '.', ',', '?',
-                                                                           '!']:  # bulardan oldingi harf undosh bulsa
+            # print("--",word, i)
+            if word[i] in ['ю', 'Ю', 'я', 'Я'] and word[i - 1] == 'л':
+                return y_map2[word[i]]
+            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['(', '"', '-', '-', '.', ',', '?', '!']:  # bulardan oldingi harf undosh bulsa
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
@@ -676,18 +677,14 @@ class UzTransliterator:
         return e_map2[word[i]]
 
     def __check_change_date_to_lat(self, cnv_words: list):  # kirill->latin da date larga chiziqcha quyish
-        dates = (
-            'yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr',
-            'noyabr', 'dekabr')
+        dates = ('yil', 'asr', 'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr') # 'yil'
         for i in range(1, len(cnv_words)):
             if cnv_words[i].lower().startswith(dates) and cnv_words[i - 1].isdigit():
                 cnv_words[i] = "\*-" + cnv_words[i]  # "\*-" quyib keyin " \*" ni o'chirib tashaymiz
         # return cnv_words       #list is a mutable object, so it is sent as a refrence to the object
 
     def __check_change_date_to_cyr(self, cnv_words: list):  # latin->cyril da date larga chiziqcni quymaslik
-        dates = (
-            'йил', 'аср', 'январ', 'феврал', 'март', 'апрел', 'май', 'июн', 'июл', 'август', 'сентябр', 'октябр',
-            'ноябр', 'декабр')
+        dates = ('йил', 'аср', 'январ', 'феврал', 'март', 'апрел', 'май', 'июн', 'июл', 'август', 'сентябр', 'октябр', 'ноябр', 'декабр')
 
         for i in range(len(cnv_words)):
             if "-" in cnv_words[i]:
@@ -699,19 +696,31 @@ class UzTransliterator:
                             cnv_words[i] = cnv_words[i][:ni] + " " + cnv_words[i][ni + 1:]  # chiziqchani uchirbaramiz
         # return cnv_words       #list is a mutable object, so it is sent as a refrence to the object
 
-    def __check_change_second_uppercase(self, cnv_words: list):  # SHamol ->Shamol
-        twoletters = {'SH': 'Sh', 'CH': 'Ch', 'YE': 'Ye', 'YO': 'Yo', 'YU': 'Yu', 'YA': 'Ya'}
-        for i in range(0, len(cnv_words)):
-            ind = 0
-            while ind < len(cnv_words[i]):
-                if not cnv_words[i][ind].isalpha():
-                    ind += 1
-                else:
-                    break
+    def __check_change_second_uppercase(self, cnv_words: list):  # AQSh->AQSH,  (SHamol ->Shamol)
+        # twoletters = {'SH': 'Sh', 'CH': 'Ch', 'YE': 'Ye', 'YO': 'Yo', 'YU': 'Yu', 'YA': 'Ya'}
+        twoletters_m = {'Sh': 'SH', 'Ch': 'CH', 'Ye': 'YE', 'Yo': 'YO', 'Yu': 'YU', 'Ya': 'YA'}
 
-            if cnv_words[i][ind:ind + 2] in twoletters and cnv_words[i][ind + 2:].islower():
-                cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind + 2]] + cnv_words[i][
-                                                                                            ind + 2:]  # SHamol ->Shamol
+        for i in range(0, len(cnv_words)):
+            for d in twoletters_m:  # key
+                if d in cnv_words[i]:
+                    ind = cnv_words[i].find(d)
+                    # SHamol - > Shamol
+                    # cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]  # SHamol ->Shamol
+
+                    # AQSh -> AQSH
+                    if (ind>0 and cnv_words[i][:ind].isupper()) or (ind<len(cnv_words[i])-1 and cnv_words[i][ind+2:].isupper()):
+                        cnv_words[i] = cnv_words[i][:ind] + twoletters_m[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]
+            # ind = 0
+            # while ind < len(cnv_words[i]):
+            #     print("--", cnv_words[i], cnv_words[i][ind].isalpha())
+            #     if not cnv_words[i][ind].isalpha():
+            #         ind += 1
+            #     else:
+            #         break
+            #
+            # if cnv_words[i][ind:ind + 2] in twoletters and cnv_words[i][ind + 2:].islower():
+            #     print("true")
+            #     cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]  # SHamol ->Shamol
         # return cnv_words
 
     def __remove_symbols_starting(self, word: str, i: int):  # delete starting symbols to correctly convert of (endi  -> (энди
@@ -871,14 +880,11 @@ class UzTransliterator:
             cnv_words.append(cnv_word)
 
         if to in ["cyr"]:
-            self.__check_change_date_to_cyr(
-                cnv_words)  # latin->cyrill o'girilganda sanalar oldiga chiziq o'chiriladi: 2021-yil 10-mart -> 2021 йил 10 март
+            self.__check_change_date_to_cyr(cnv_words)  # latin->cyrill o'girilganda sanalar oldiga chiziq o'chiriladi: 2021-yil 10-mart -> 2021 йил 10 март
 
         if to in ["lat", "nlt"]:
-            self.__check_change_date_to_lat(
-                cnv_words)  # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
-            self.__check_change_second_uppercase(
-                cnv_words)  # latin va newLatinda Birinchidagi harf katta bulsa SHamol shaklida qaytganda Shamol qilib yuborish uchun
+            self.__check_change_date_to_lat(cnv_words)  # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
+            self.__check_change_second_uppercase(cnv_words)  # latin va newLatinda Birinchidagi harf katta bulsa SHamol shaklida qaytganda Shamol qilib yuborish uchun
 
         text = ' '.join(cnv_words)  # return as a list // return cnv_words
 

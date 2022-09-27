@@ -4,19 +4,19 @@ import time
 
 obj = UzTransliterator.UzTransliterator()
 
-# while True:
-#     lang1 = input("lang1=")
-#     lang2 = input("lang2=")
-#     w = ""
-#     while w != "stop":
-#         w = input('Suz=')
-#         print(obj.transliterate(w, from_=lang1, to=lang2))
+while True:
+    lang1 = input("lang1=")
+    lang2 = input("lang2=")
+    w = ""
+    while w != "stop":
+        w = input('Suz=')
+        print(obj.transliterate(w, from_=lang1, to=lang2))
 
 total_token, total_char, total_time = 0, 0, 0
 total_wrong, total_correct = 0, 0
-for i in range(59,60):
-    from_ = "lat"
-    to = "cyr"
+for i in range(0,65):
+    from_ = "cyr"
+    to = "lat"
     with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
         text = f.read().rstrip()
         # print(text)
@@ -50,10 +50,11 @@ for i in range(59,60):
     total_wrong += wrong
     total_correct += correct
     print(i, len(result), wrong, correct, len(tokens_result), round(wrong/len(tokens_result)*100,2), round(correct/len(tokens_result)*100,2))
-print(total_time)
+print(round(total_time, 4), 'seconds')
 print(total_token)
 print(total_wrong)
 print(total_correct)
-print(round(total_wrong/total_token * 100, 2)*100, '%')
+print(round(total_wrong/total_token*100, 2), '%')
+print(round(total_correct/total_token*100, 2), '%')
 print(total_char)
 

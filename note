@@ -6,3 +6,7 @@ Bunday holat faqatgina oylar nomi bn boshlanadigan suz va undan oldin son kelsag
 -Rim raqamalrini uzgarishsiz qoladi, shular dasturga qushuldi
 -linklar (www, http) lar xam dasturga qushildi, yani bularni transliterate qilib utirmaydi.
 - latin->cyril da date larga chiziqcni quymaslik xam qushildi
+- (challange1) kirilchada (1970 йил) buladi, lotinchada (1970-yil) buladi. bu xolda (-) olib tashlab chiqiriladi,
+lekin "2000 yil mobaynida" degan yozuvda nima nazarda tutilganini ajratib bulmaydi, yani qaysidir yilmi yoki nechadir yilmi ekanligini.
+- (challange2) АҚШ -> AQSh xammasi bosma harfdagi suzda digraph qatnashsa (Sh, Ch,..) bunda AQSH kurinshda yozish
+uchun
