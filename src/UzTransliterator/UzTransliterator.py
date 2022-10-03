@@ -22,6 +22,8 @@ class _CharMapping:
         self.nlt_vowel = ["a", "i", "e", "u", "ō", "o", "A", "I", "E", "U", "Ō" "O"]
 
         self.cyr_lat = {
+            '«': '“',
+            '»': '”',
             'А': 'A',
             'Б': 'B',
             'Д': 'D',
@@ -626,10 +628,7 @@ class UzTransliterator:
         s_map1 = {'ц': 'ts', 'Ц': 'TS'}
         s_map2 = {'ц': 's', 'Ц': 'S'}
         if i - 1 >= 0 and i + 1 < len(word):
-            if word[i - 1] in self.__cyr_vowel and word[i + 1] in self.__cyr_vowel and word[i - 1] not in ['(', '"',
-                                                                                                           '-', '-',
-                                                                                                           '.', ',',
-                                                                                                           '?', '!']:
+            if word[i - 1] in self.__cyr_vowel and word[i + 1] in self.__cyr_vowel:
                 return s_map1[word[i]]
         return s_map2[word[i]]
 
@@ -654,9 +653,11 @@ class UzTransliterator:
 
         if i - 1 >= 0 and i != len(word) - 1:
             # print("--",word, i)
-            if word[i] in ['ю', 'Ю', 'я', 'Я'] and word[i - 1] == 'л':
+            if word[i] in ['ю', 'Ю', 'я', 'Я'] and word[i - 1] in ['л', 'Л', 'н', 'Н']:
                 return y_map2[word[i]]
-            if word[i - 1] not in self.__cyr_vowel and word[i - 1] not in ['(', '"', '-', '-', '.', ',', '?', '!']:  # bulardan oldingi harf undosh bulsa
+            if word[i] in ['ё', 'Ё'] and word[i - 1] in ['н', 'Н']:
+                return y_map2[word[i]]
+            if word[i - 1] not in self.__cyr_vowel:  # bulardan oldingi harf undosh bulsa # word[i - 1] not in ['(', '"', '-', '-', '.', ',', '?', '!']
                 return y_map1[word[i]]
         return y_map2[word[i]]
 
@@ -783,7 +784,7 @@ class UzTransliterator:
 
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
-            text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            # text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
 
         # tokens = text.split()  # list of words from text
         # tokens = re.split('; |, |\*|\n |-|!|', text) # list of words from text
