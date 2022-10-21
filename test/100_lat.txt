@@ -1,0 +1,57 @@
+Type–C’ga o‘tayotgan Apple, Lordlar palatasida so‘zga chiqqan robot va bir o‘rindiqli elektromobil - hafta texnodayjesti
+Kun.uz yakunlanayotgan haftadagi texnologiya va ilm-fanga oid eng qiziqarli xabarlarni jamladi.
+Apple ham USB Type–C’ga o‘tadi
+
+
+Apple kompaniyasi Yevropa Ittifoqi talab qilganidek, USB-C ulagichiga o‘tish uchun Lightning’dan 2023 yildayoq voz kechadi. Bu haqda Bloomberg xabar berdi.
+
+«Apple o‘zining eng mashhur gadjetlari uchun yangi ulagichga o‘tish muddatini tezlashtirdi. Masalan, iPhone 15 kelasi yil kuzdayoq USB-C ulagichi bilan ishlab chiqariladi. Bu belgilangan sanadan bir yil oldinroqdir», deyiladi xabarda.
+
+
+Lightning ulagichi faqat Apple kompaniyasiga xos bo‘lib, boshqa ishlab chiqaruvchilarning gadjetlariga o‘rnatilmagan. Shuningdek, boshqa ishlab chiqaruvchilarning quvvatlantiruvchi qurilmalaridan ham Apple kompaniyasi gadjetlarida foydalanish imkonsiz. USB-C universal ulagichiga o‘tish bunday noqulaylikka barham berilishini nazarda tutadi. 
+
+Avvalroq, Yevropa Ittifoqida 2024 yilgacha barcha mobil telefon, planshet, kameralar uchun yagona quvvatlash porti joriy etilishi ma’lum qilingandi.
+
+Bir o‘rindiqli elektromobil
+
+
+Renault Group kompaniyasi Mobilize savdo belgisi ostida bir o‘rindiqli Solo Concept prototipini taqdim qildi, u tijorat maqsadlari va karshering uchun mo‘ljallangan.
+
+Uch g‘ildirakli elektromobil Renault kompaniyasining Hindiston bo‘limi tomonidan ishlab chiqilgan, haydovchi uni yarim o‘tirgan holatda joystik yordamida boshqaradi.
+
+Salonga chap tomondagi eshik orqali kiriladi. Elektromobil xavfsizlik yostiqchasi bilan jihozlangan va tezligi 25 km/s bilan chegaralangan, bu esa dubulg‘a kiymagan holda xavfsiz harakatlanishga imkon beradi. Shuningdek, uni boshqarish uchun haydovchilik guvohnomasi ham shartmas.
+
+Solo Concept elektromobili an’anaviy tarzda sim orqali, shuningdek, simsiz quvvatlanishi ham mumkin. Bundan tashqari, elektromobil batareyasini yechib olish va zaryadlash uchun olib ketish ham ko‘zda tutilgan.
+
+Viruslarni «so‘ruvchi» changyutgich
+
+
+Dyson kompaniyasi Gen5detect changyutgichini taqdim qildi. Ishlab chiqaruvchi bayonotiga ko‘ra, u mikrozarralar va COVID-19 kabi viruslar molekulalarini so‘rib olish xususiyatiga ega bo‘lgan dunyodagi birinchi maishiy texnika hisoblanadi.
+
+Bu xususiyatga changyutgich noyob dizayni va 0,1 mikrongacha bo‘lgan zarrachalarni ushlab qolish xususiyatiga ega HEPA-filtr o‘rnatilgan germetik rezervuari tufayli erishilgan. Dvigatelning o‘ziga xos joylashuvi chiqindi bo‘limiga kirgan havo to‘liq tozalanganidan so‘ng tashqariga chiqarib yuborilishini ta’minlaydi.
+
+Gen5detect daqiqasiga 135 ming marta aylanadigan dvigatelga ega. Uning akkumulyatori 70 daqiqa davomida uzluksiz ishlashi mumkin. Chiqindi idishining hajmi 0,77 litr, changyutgichning og‘irligi esa 3,5 kg.
+
+Yangi changyutgich qachon sotuvga chiqishi va uning narxi qancha bo‘lishi haqida xabar berilmagan.
+
+O‘zbekiston va Qirg‘iziston hamkorlikda yengil avtomobillar ishlab chiqaradi
+
+
+Foto: Investitsiyalar va tashqi savdo vazirligi matbuot xizmati
+O‘zbekiston va Qirg‘iziston qishloq xo‘jaligi texnikasi va yengil avtomobillar ishlab chiqarishni tashkil etish to‘g‘risidagi bitim ishlab chiqadi. Bu boradagi kelishuvga bosh vazir o‘rinbosari — investitsiyalar va tashqi savdo vaziri Jamshid Xo‘jayev va Qirg‘izistonning O‘zbekistondagi elchisi Muso Jamanbayev o‘rtasidagi uchrashuvda erishilgan.
+
+42 000 dollarlik sport elektromobili
+
+
+Xiaomi kompaniyasiga aloqador bo‘lgan China Car Custom startapi Ferrari’ga o‘xshab ketadigan  sport elektromobilini namoyish etdi.
+
+SC01(Sport Car 01) deb ataluvchi ushbu avtomobilning vazni 1,3 tonna bo‘lib, narxi 42 000 dollarni tashkil etadi.
+
+Umumiy quvvati 435 ot kuchiga ega ikkita elektr motor o‘rnatilgan SC01 100 km/s tezlikka chiqish uchun atigi 3,9 soniya sarflaydi. Avtomobilni bir marta to‘liq quvvatlash orqali 500 kmgacha yurish mumkin.
+
+SC01’ni yetkazib berish 2023 yilning to‘rtinchi choragida boshlanishi ko‘zda tutilgan.
+
+Robot Lordlar palatasida nutq so‘zladi
+
+
+Buyuk Britaniya Lordlar palatasida robot nutq so‘zladi. Ai-Da deb nomlanuvchi va Oksfordda Aidan Moyeller tomonidan yaratilgan texnologiya san’at, dizayn, moda va musiqa sanoati kelajagi bo‘yicha Aloqa va raqamli texnologiyalar qo‘mitasi oldida hisobot berdi. Qonunchilar robotga turli mazmundagi oldindan tayyorlangan savollarni berishgan. 

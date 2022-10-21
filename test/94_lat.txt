@@ -1,0 +1,15 @@
+Android operatsion tizimining yangi versiyasi chiqdi 
+Google arzon smartfonlar uchun Android 13 operatsion tizimining yengil versiyasini chiqardi. 
+
+Foto: Google
+Google kompaniyasi Android 13 operatsion tizimining Go Edition deb nomlangan yangi, yengil versiyasini taqdim etdi. U arzon smartfonlar uchun maxsus ishlab chiqilgan. 
+
+Qayd etilishicha, Android 13 asosiy versiyasi chiqarilganidan taxminan ikki oy o‘tgach, uning yengil versiyasi taqdim etilmoqda. 
+
+Android 13 Go versiyasida oldingi yengil versiyalardan farqli o‘laroq, «eski» operatsion tizim interfeysi saqlab qolindi. Soddalashtirilgan versiya ham Material You dinamik ranglari bilan ta’minlangan. 
+
+Shuningdek, bloklangan ekran va tezkor sozlamalar menyusidagi mavzular deyarli o‘zgarmagan. Ular ko‘p jihatdan Google Pixel smartfonlari imkoniyatlari bilan bir xil. 
+
+Android 13 Go versiyasida Google Play tizimini yangilash imkoniyati bor. Bu esa Android OT va ilovalarni smartfonga o‘rnatishni ancha osonlashtiradi. 
+
+Avvalroq Google smartfonlar bozori Apple tomonidan egallab olinishiga qarshi turish uchun o‘z qurilmalarini ishlab chiqishga sarmoya kiritishni ikki barobarga oshirishi xabar qilingandi. 
