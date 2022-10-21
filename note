@@ -11,6 +11,9 @@ lekin "2000 yil mobaynida" degan yozuvda nima nazarda tutilganini ajratib bulmay
 - (challange2) АҚШ -> AQSh xammasi bosma harfdagi suzda digraph qatnashsa (Sh, Ch,..) bunda AQSH kurinshda yozish
 uchun
 -« .. turli xil kurinishdagi qushtirnoqlarni ishlatishi kuzatildi, ularni bir-biriga mos qo'yish tartibi mavjud emas. train/test datasetlarda, ushbu xatoliklar error rateni oshirishiga sabab buladi.
+- "Starlink'ка ойига 100-500 доллар тўлаш керак" gapida inglizchadagi kompaniya nomi translit qilinmaydi. Lotinga
+o'tkazishda xato bo'lmaydi, lekin lotin-kirilda buni xam translit qiladi. Bu xam muammo.
+
 
 https://unicode-table.com/en/02BC/
 https://unicode-table.com/en/02BB/
