@@ -14,9 +14,9 @@ obj = UzTransliterator.UzTransliterator()
 
 total_char, total_time = 0, 0
 total_wrong, total_correct = 0, 0
-for i in range(76, 77):
-    from_ = "cyr"
-    to = "lat"
+for i in range():
+    from_ = "lat"
+    to = "cyr"
     with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
         text = f.read().rstrip()
         # print(text)
@@ -41,13 +41,41 @@ for i in range(76, 77):
     # print("--------Error tokens----------")
     for token in tokens_result:
         x = token.replace("‘", "ʻ")
-        y = token.replace("”", "»")
-        if token in tokens_to or x in tokens_to or y in tokens_to:
+        y = token.replace("“", "«")
+        z = token.replace("”", "»")
+        y1 = token.replace("«", "“")
+        z1 = token.replace("»", "”")
+        k =  token.replace("ь", "")
+        if token in tokens_to or x in tokens_to or y in tokens_to or z in tokens_to or y1 in tokens_to or z1 in tokens_to or k in tokens_to:
             correct += 1
         else:
             wrong += 1
             print(token, x)
             # tokens_to.remove(token)
+
+        # if token in tokens_to:
+        #     correct += 1
+        #     tokens_to.remove(token)
+        # elif x in tokens_to:
+        #         correct += 1
+        #         tokens_to.remove(x)
+        # elif y in tokens_to:
+        #     correct += 1
+        #     tokens_to.remove(y)
+        # elif z in tokens_to:
+        #     correct += 1
+        #     tokens_to.remove(z)
+        # elif y1 in tokens_to:
+        #     correct += 1
+        #     tokens_to.remove(y1)
+        # elif z1 in tokens_to:
+        #     correct += 1
+        #     tokens_to.remove(z1)
+        # else:
+        #     wrong += 1
+        #     # print(token, x)
+        #     # tokens_to.remove(token)
+
         total_char += len(token)
 
     total_wrong += wrong
@@ -55,10 +83,13 @@ for i in range(76, 77):
 
     # print(i, "\t", len(result), "\t", wrong, "\t", correct, "\t", len(tokens_result), "\t", round(wrong/len(tokens_result)*100,2), "\t", round(correct/len(tokens_result)*100,2))
     print(i, "\t", "\t", round(wrong/len(tokens_result)*100,2), "\t", round(correct/len(tokens_result)*100,2))
+    # print(round(wrong/len(tokens_result)*100,2))
+
+print(from_, to);
 print("Time execution", round(total_time, 4), 'seconds')
 print("Total wrong token", total_wrong)
 print("Total correct token", total_correct)
 print(round(total_wrong/(total_wrong+total_correct)*100, 2), '%')
 print(round(total_correct/(total_wrong+total_correct)*100, 2), '%')
-print(total_char)
+print("Total characters ", total_char)
 

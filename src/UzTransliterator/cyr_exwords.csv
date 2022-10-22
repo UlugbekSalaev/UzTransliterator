@@ -11,6 +11,7 @@ brutselloz,бруцеллоз
 cherepitsa,черепица
 dotsent,доцент
 fransuz,француз
+fransiya,франция
 gaubitsa,гаубица
 gers,герц
 glitserin,глицерин
@@ -38,6 +39,7 @@ penitsillin,пенициллин
 platsdarm,плацдарм
 platskarta,плацкарта
 politsmeyster,полицмейстер
+potensial,потенциал
 jinsiyat,жинсият
 pensiya,пенсия
 ranes,ранец
@@ -107,9 +109,15 @@ rol,роль
 royal,рояль
 rul,руль
 seld,сельд
+yanvar,январь
+fevral,февраль
+aprel,апрель
+iyun,июнь
+iyul,июль
 sentabr,сентябрь
-oktabr,октябр
+oktabr,октябрь
 noyabr,ноябрь
+dekabr,декабрь
 petitsiya,петиция
 shinel,шинель
 shpatel,шпатель
@@ -143,7 +151,6 @@ volta,вольта
 voltmetr,вольтметр
 vulgar,вульгар
 yakor,якорь
-yanvar,январь
 yuriskonsult,юрисконсульт
 ansambl,ансамбль
 artel,артель
@@ -161,7 +168,6 @@ bolshevik,большевик
 budilnik,будильник
 bulvar,бульвар
 dalton,дальтон
-dekabr,декабрь
 delfin,дельфин
 devalvatsiya,девальвация
 dirijabl,дирижабль
@@ -178,7 +184,6 @@ falsifikatsiya,фальсификация
 feldmarshal,фельдмаршал
 feldsher,фельдшер
 festival,фестиваль
-fevral,февраль
 filtr,фильтр
 folklor,фольклор
 fotoalbom,фотоальбом
@@ -192,10 +197,9 @@ grifel,грифель
 impuls,импульс
 insult,инсульт
 intervyu,интервью
+video-intervyu,видео-интервью
 inyeksiya,иньекция
 italyan,итальян
-iyul,июль
-iyun,июнь
 kabel,кабель
 kalendar,календарь
 kanifol,канифоль
@@ -255,6 +259,7 @@ intervensiya,интервенция
 intonatsiya,интонация
 intuitsiya,интуиция
 infeksiya,инфекция
+inflyatsiya,инфляция
 irrigatsiya,ирригация
 kanalizatsiya,канализация
 kassatsiya,кассация
@@ -266,6 +271,12 @@ kommunikatsiya,коммуникация
 kompozitsiya,композиция
 konvensiya,конвенция
 konversiya,конверция
+kombinatsion,комбинацион
+kommunikatsion,коммуникацион
+kompozitsion,композицион
+konversion,конверцион
+pozitsiya,позиция
+pozitsion,позицион
 konsignatsiya,консигнация
 konsorsium,консорциум
 konstitutsiya,конституция
@@ -359,7 +370,6 @@ alpinizm,альпинизм
 alpinist,альпинист
 angor,ангьор
 apelsin,апельсин
-aprel,апрель
 batalon,батальон
 bill,билль
 brilyant,брильянт
@@ -424,3 +434,18 @@ sanksiya,санкция
 pasifist,пацифист
 koalitsiya,коалиция
 ofitsiant,официант
+mo‘jiza,мўъжиза
+mo‘jazgina,мўъжазгина
+belgiya,бельгия
+shvetsiya,швеция
+nominatsiya,номинация
+neft,нефть
+nitroglitserin,нитроглицерин
+atele,ателье
+atelye,ателье
+evropa,европа
+innovatsiya,инновация
+innovatsion,инновацион
+telemeditsina,телемедицина
+farmatsiya,фармация
+axborot-kommunikatsiya,ахборот-коммуникация

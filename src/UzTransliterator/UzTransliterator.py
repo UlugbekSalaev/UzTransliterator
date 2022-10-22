@@ -668,6 +668,8 @@ class UzTransliterator:
         e_map2 = {'e': 'э', 'E': 'Э'}  # latin -> kiril
 
         if i - 1 >= 0 and i + 1 < len(word):
+            if not word[i - 1].isalpha(): # endi-endi, bunda 2-endi dan oldin belgi kelgan, энди-енди xatolikda chiqyapti, shuni yuqotish uchun bu kod line
+                return e_map2[word[i]]
             if word[i - 1] not in self.__lat_vowel and word[i + 1] not in self.__lat_vowel:
                 return e_map1[word[i]]
             if word[i + 1] in self.__lat_vowel:  # arxeolog(lat)->архэолог(cyr)->археолог(cyr)
@@ -743,8 +745,9 @@ class UzTransliterator:
 
     def __check_global_rules(self, word: str):
         # global rule 1: whether Roman number
-        if word.isupper():  # check whether token is Roman number {I, V, X, L, C, D, M}
-            if 0 not in [c in {'I', 'V', 'X', 'L', 'C', 'D', 'M'} for c in word]:
+        w = word.replace('-', '', 1) # XV-XVI -> XVXVI
+        if w.isupper():  # check whether token is Roman number {I, V, X, L, C, D, M}
+            if 0 not in [c in {'I', 'V', 'X', 'L', 'C', 'D', 'M'} for c in w]:
                 return True
 
         # global rule 2: whether url
@@ -802,7 +805,6 @@ class UzTransliterator:
             wl = len(word)
             # found = False
             # search_ex = True
-
             for c in range(wl):  # check token is start by symbols, add it to converted string
                 i = c
                 if word[c].isalpha():
@@ -825,10 +827,12 @@ class UzTransliterator:
                                 cnv_word += res
                             # print("cnv="+cnv_word)
                             found = True
-                            i += j
+                            i = j
+
                             break
                         # if chunk[0].isalpha() and chunk[-1].isalpha():
                         #     search_ex = False
+
                     if to in ["lat", "nlt"]:  # i==0 bu suzni boshidagi qismini csv dan qidirish
                         if chunk.lower() in self.__lat_exwords:
                             res = self.__lat_exwords[chunk.lower()]
@@ -877,7 +881,6 @@ class UzTransliterator:
                             cnv_word += word[i]
 
                         i += 1
-
             cnv_words.append(cnv_word)
 
         if to in ["cyr"]:
