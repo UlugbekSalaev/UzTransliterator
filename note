@@ -1,9 +1,15 @@
+-------test dataset source--------
+-book
+-news site (daryo.uz kun.uz, ... by categories)
+-short story (ziyouz.uz, Uzbek literatury, Foreign literatury, ...)
+-------------------------
+
 "10-marta" degan suzni lotindan cyrilga utkazganda "10 марта" bulib qoladi, aslida "10-marta" bulishi kerak edi.
 Chunki kirilda sana yozganda chiziqcha olib tashlanadi.
 "mart, marta, martda" degan suzlarni "mart" deb tushunadi va sana deb gumon qilib chiziqchani uchiradi dastur.
 Bunday holat faqatgina oylar nomi bn boshlanadigan suz va undan oldin son kelsagina bu holat ruy beradi.
 
--Rim raqamalrini uzgarishsiz qoladi, shular dasturga qushuldi
+-Rim raqamalrini uzgarishsiz qoladi, shular dasturga qushuldi, XIX-XX kabi
 -linklar (www, http) lar xam dasturga qushildi, yani bularni transliterate qilib utirmaydi.
 - latin->cyril da date larga chiziqcni quymaslik xam qushildi
 - (challange1) kirilchada (1970 йил) buladi, lotinchada (1970-yil) buladi. bu xolda (-) olib tashlab chiqiriladi,
@@ -14,8 +20,64 @@ uchun
 - "Starlink'ка ойига 100-500 доллар тўлаш керак" gapida inglizchadagi kompaniya nomi translit qilinmaydi. Lotinga
 o'tkazishda xato bo'lmaydi, lekin lotin-kirilda buni xam translit qiladi. Bu xam muammo.
 
-
 https://unicode-table.com/en/02BC/
 https://unicode-table.com/en/02BB/
 https://en.wikipedia.org/wiki/Uzbek_alphabet
 https://lex.uz/docs/-1625271 (lotin tilining imlo qoidalari)
+
+-------------Test results------------
+Direction: lat -> cyr
+Time execution 1.5275 seconds
+Total wrong token 1674
+Total correct token 248467
+Wrong:   0.67 %
+Correct: 99.33 %
+Standard Deviation, σ: 1.0682262391323
+Total characters  1627699
+----------------------
+Direction: cyr -> lat
+Time execution 2.7846 seconds
+Total wrong token 2180
+Total correct token 247310
+Wrong:   0.87 %
+Correct: 99.13 %
+Standard Deviation, σ: 1.1896051949104
+Total characters  1733801
+-----------------------
+Direction: nlt -> lat
+Time execution 1.7223 seconds
+Total wrong token 449
+Total correct token 249154
+0.18 %
+99.82 %
+Standard Deviation, σ: 0.63410384200797
+Total characters  1737395
+--------------------
+Direction: lat -> nlt
+Time execution 1.5924 seconds
+Total wrong token 643
+Total correct token 248960
+0.26 %
+99.74 %
+Standard Deviation, σ: 0.6143958080677
+Total characters  1652364
+-----------------------
+Direction: cyr -> nlt
+Time execution 1.9352 seconds
+Total wrong token 2199
+Total correct token 247291
+0.88 %
+99.12 %
+Standard Deviation, σ: 1.2113696428153
+Total characters  1648786
+--------------------
+Direction: nlt -> cyr
+Time execution 1.7946 seconds
+Total wrong token 1726
+Total correct token 248415
+0.69 %
+99.31 %
+Standard Deviation, σ: 1.0774937627795
+Total characters  1627625
+---------------
+

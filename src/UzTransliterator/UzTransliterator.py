@@ -391,7 +391,6 @@ class _CharMapping:
             'g‘': 'ḡ',
             'sh': 'ş',
             'ch': 'ç',
-
             'e': 'e',
 
             # 'ng': 'нг',
@@ -608,7 +607,7 @@ class UzTransliterator:
 
         e_map1 = {'е': 'e', 'Е': 'E'}
         e_map2 = {'е': 'ye', 'Е': 'Ye'}
-        if i == len(word) - 1:  # last char alifbe->алифбэ->алифбе
+        if i == len(word) - 1:  # last char alifbe
             return e_map1[word[i]]
 
         if i - 1 >= 0 and i + 1 < len(word):
@@ -711,8 +710,9 @@ class UzTransliterator:
                     # cnv_words[i] = cnv_words[i][:ind] + twoletters[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]  # SHamol ->Shamol
 
                     # AQSh -> AQSH
-                    if (ind>0 and cnv_words[i][:ind].isupper()) or (ind<len(cnv_words[i])-1 and cnv_words[i][ind+2:].isupper()):
-                        cnv_words[i] = cnv_words[i][:ind] + twoletters_m[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]
+                    # if (ind>0 and cnv_words[i][:ind].isupper()) or (ind<len(cnv_words[i])-1 and cnv_words[i][ind+2:].isupper()):
+                    #     cnv_words[i] = cnv_words[i][:ind] + twoletters_m[cnv_words[i][ind:ind + 2]] + cnv_words[i][ind + 2:]
+
             # ind = 0
             # while ind < len(cnv_words[i]):
             #     print("--", cnv_words[i], cnv_words[i][ind].isalpha())
@@ -785,6 +785,11 @@ class UzTransliterator:
             text = text.replace("Gʻ", "G‘")
             text = text.replace("Oʻ", "O‘")
 
+            text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            # text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
+
+        if from_ == "nlt":
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
             # text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
@@ -872,7 +877,7 @@ class UzTransliterator:
                             if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:  # cyr_rule3 //'Е', 'е',
                                 cnv_word += self.__cyr_rule3(word, i)
                                 catch_in_rule = True
-                        if from_ == "lat":
+                        if from_ in ["lat", "nlt"]:
                             if word[i] in ['e', 'E']:  # lat_rule1
                                 cnv_word += self.__lat_rule1(word, i)
                                 catch_in_rule = True

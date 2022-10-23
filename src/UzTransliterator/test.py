@@ -14,9 +14,9 @@ obj = UzTransliterator.UzTransliterator()
 
 total_char, total_time = 0, 0
 total_wrong, total_correct = 0, 0
-for i in range():
-    from_ = "lat"
-    to = "cyr"
+for i in range(0,106):
+    from_ = "cyr"
+    to = "nlt"
     with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
         text = f.read().rstrip()
         # print(text)
@@ -50,7 +50,7 @@ for i in range():
             correct += 1
         else:
             wrong += 1
-            print(token, x)
+            # print(token, x)
             # tokens_to.remove(token)
 
         # if token in tokens_to:
@@ -82,8 +82,8 @@ for i in range():
     total_correct += correct
 
     # print(i, "\t", len(result), "\t", wrong, "\t", correct, "\t", len(tokens_result), "\t", round(wrong/len(tokens_result)*100,2), "\t", round(correct/len(tokens_result)*100,2))
-    print(i, "\t", "\t", round(wrong/len(tokens_result)*100,2), "\t", round(correct/len(tokens_result)*100,2))
-    # print(round(wrong/len(tokens_result)*100,2))
+    # print(i, "\t", "\t", round(wrong/len(tokens_result)*100,2), "\t", round(correct/len(tokens_result)*100,2))
+    print(round(correct/len(tokens_result)*100,2))
 
 print(from_, to);
 print("Time execution", round(total_time, 4), 'seconds')
@@ -92,4 +92,3 @@ print("Total correct token", total_correct)
 print(round(total_wrong/(total_wrong+total_correct)*100, 2), '%')
 print(round(total_correct/(total_wrong+total_correct)*100, 2), '%')
 print("Total characters ", total_char)
-

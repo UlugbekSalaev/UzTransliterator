@@ -1,57 +1,81 @@
-Type–C’ga o‘tayotgan Apple, Lordlar palatasida so‘zga chiqqan robot va bir o‘rindiqli elektromobil - hafta texnodayjesti
-Kun.uz yakunlanayotgan haftadagi texnologiya va ilm-fanga oid eng qiziqarli xabarlarni jamladi.
-Apple ham USB Type–C’ga o‘tadi
+“Bizdan rozi bo‘lmagan mijozning puli halolmas” - trening biznesi PCG misolida
+So‘nggi vaqtlarda saviyasi haminqadar biznes-trenerlar bu soha obro‘siga putur yetkazgani bor gap. Biroq bu professional biznes-konsultantlarga nisbatan talabni kamaytirgani yo‘q. Ana shunday trenerlardan biri, kurslarining narxi bir necha o‘n million turadigan Ibrohim Gulyamov – “Biznes-klass” loyihasining navbatdagi qahramoni.
+
+"Perfect Consulting Group” kompaniyasi 2016 yil may oyida biznes-konsultant, amaliyotchi, marketolog, reklama va savdo bo‘yicha mutaxassis Gulyamov Ibrohim Ilhomovich tomonidan tashkil etilgan.
+
+Ibrohim Gulyamov sotuv hajmini oshirish, mijozlar bilan ishlash va reklamadan unumli foydalanish yo‘nalishlarida shaxsiy brendini yarata olgan.
+
+Intervyu va kouchingda ishtirok etgan tadbirkorlar bilan suhbat jarayonigacha shaxsan o‘zimda ham bu kabi kasb egalarining faoliyatiga ishonchsizlik bor edi. Real hikoyalarni, kompaniyalarning ko‘rgan natijasi haqida xabardor bo‘lib, munosabatim o‘zgardi. Har bir ishning ilmi bo‘lgani kabi, foydali biznes qilishning ham ma’lum doirada o‘z ilmi borligi mavzuga ichkariroq nazar tashlaganda oydinlashib bordi.
 
 
-Apple kompaniyasi Yevropa Ittifoqi talab qilganidek, USB-C ulagichiga o‘tish uchun Lightning’dan 2023 yildayoq voz kechadi. Bu haqda Bloomberg xabar berdi.
-
-«Apple o‘zining eng mashhur gadjetlari uchun yangi ulagichga o‘tish muddatini tezlashtirdi. Masalan, iPhone 15 kelasi yil kuzdayoq USB-C ulagichi bilan ishlab chiqariladi. Bu belgilangan sanadan bir yil oldinroqdir», deyiladi xabarda.
 
 
-Lightning ulagichi faqat Apple kompaniyasiga xos bo‘lib, boshqa ishlab chiqaruvchilarning gadjetlariga o‘rnatilmagan. Shuningdek, boshqa ishlab chiqaruvchilarning quvvatlantiruvchi qurilmalaridan ham Apple kompaniyasi gadjetlarida foydalanish imkonsiz. USB-C universal ulagichiga o‘tish bunday noqulaylikka barham berilishini nazarda tutadi. 
+Suhbatimiz avvalida Ibrohim Gulyamovdan konsalting firmaga asos solgan payti haqida so‘radik.
 
-Avvalroq, Yevropa Ittifoqida 2024 yilgacha barcha mobil telefon, planshet, kameralar uchun yagona quvvatlash porti joriy etilishi ma’lum qilingandi.
+“Do‘stimning korxonasida ishlab yurgan vaqtimda biznesni o‘stirish, rivojlantirish haqida o‘qib-o‘rganardim. Amalda qo‘llab sinab borardik. Sekin-sekin ijobiy natija bera boshlaganini sezgach, boshqa kompaniyalarga tavsiyalar ulashdik. Keyin bu yo‘nalishni alohida biznesga aylantirish g‘oyasi keldi.
 
-Bir o‘rindiqli elektromobil
-
-
-Renault Group kompaniyasi Mobilize savdo belgisi ostida bir o‘rindiqli Solo Concept prototipini taqdim qildi, u tijorat maqsadlari va karshering uchun mo‘ljallangan.
-
-Uch g‘ildirakli elektromobil Renault kompaniyasining Hindiston bo‘limi tomonidan ishlab chiqilgan, haydovchi uni yarim o‘tirgan holatda joystik yordamida boshqaradi.
-
-Salonga chap tomondagi eshik orqali kiriladi. Elektromobil xavfsizlik yostiqchasi bilan jihozlangan va tezligi 25 km/s bilan chegaralangan, bu esa dubulg‘a kiymagan holda xavfsiz harakatlanishga imkon beradi. Shuningdek, uni boshqarish uchun haydovchilik guvohnomasi ham shartmas.
-
-Solo Concept elektromobili an’anaviy tarzda sim orqali, shuningdek, simsiz quvvatlanishi ham mumkin. Bundan tashqari, elektromobil batareyasini yechib olish va zaryadlash uchun olib ketish ham ko‘zda tutilgan.
-
-Viruslarni «so‘ruvchi» changyutgich
+Eng birinchi mijozlarimizning biznesini o‘stirishga juda ko‘p harakat qilganmiz, lekin foyda kam bo‘lgan. Keyin-keyin harakatlar biroz kamayib, natijaviylik o‘sib boraverdi. Bugungi kunga kelib, taxminan 3 ming nafar tadbirkor biznes kouchinglarimizda, umumiy hisobda 50 mingga yaqin kishi barcha trening-ma’ruzalarimizda ishtirok etdi”, – deydi u.
 
 
-Dyson kompaniyasi Gen5detect changyutgichini taqdim qildi. Ishlab chiqaruvchi bayonotiga ko‘ra, u mikrozarralar va COVID-19 kabi viruslar molekulalarini so‘rib olish xususiyatiga ega bo‘lgan dunyodagi birinchi maishiy texnika hisoblanadi.
+Ibrohim Gulyamov
+Biz ko‘rsatuvni suratga olish uchun PCG bosh ofisida ham bo‘ldik. Jami 60tacha xodim ishlaydigan kompaniyada sotuv bo‘limi, dizaynerlar, marketologlar va hisobchilar faoliyat yuritadi. E’tiborimizni tortgani shu bo‘ldiki, sotuv bo‘limida mijozlar bilan muloqot olib boruvchi mutaxassislar ish stolida ko‘zgu bo‘lib, o‘z kayfiyatini suhbatlashish jarayonida ko‘rib, tabassum bilan xushmuomala bo‘lishga urinar ekan.
 
-Bu xususiyatga changyutgich noyob dizayni va 0,1 mikrongacha bo‘lgan zarrachalarni ushlab qolish xususiyatiga ega HEPA-filtr o‘rnatilgan germetik rezervuari tufayli erishilgan. Dvigatelning o‘ziga xos joylashuvi chiqindi bo‘limiga kirgan havo to‘liq tozalanganidan so‘ng tashqariga chiqarib yuborilishini ta’minlaydi.
+Ibrohim Gulyamovning esa shaxsiy xonasi yo‘qligi bizni hayron qoldirdi. Sababini quyidagicha izohlashdi: “Kompaniya rahbarlarining ishxonada alohida ofisi bo‘lishi kerak emas. U o‘zini kundalik muammolarni hal qilishdan ozod qilishi va asosiy e’tiborini rivojlanishga, yangi strategiyalar tuzishga sarflashi lozim”.
 
-Gen5detect daqiqasiga 135 ming marta aylanadigan dvigatelga ega. Uning akkumulyatori 70 daqiqa davomida uzluksiz ishlashi mumkin. Chiqindi idishining hajmi 0,77 litr, changyutgichning og‘irligi esa 3,5 kg.
+Biz Ibrohim Gulyamovning treninglari haqiqatda natija bergan-bermaganiga qiziqib, uning kurslarida qatnashgan uch nafar biznesmen bilan ham suhbatlashdik. Ular yaqin o‘tmishdagi voqealarni maroq bilan so‘zlab berishdi.
 
-Yangi changyutgich qachon sotuvga chiqishi va uning narxi qancha bo‘lishi haqida xabar berilmagan.
+Sartaroshlikdan biznesmenlikka
 
-O‘zbekiston va Qirg‘iziston hamkorlikda yengil avtomobillar ishlab chiqaradi
+“Brohouse” erkaklar saloni ta’sischisi Akmal Ahrorxo‘jayev:
 
-
-Foto: Investitsiyalar va tashqi savdo vazirligi matbuot xizmati
-O‘zbekiston va Qirg‘iziston qishloq xo‘jaligi texnikasi va yengil avtomobillar ishlab chiqarishni tashkil etish to‘g‘risidagi bitim ishlab chiqadi. Bu boradagi kelishuvga bosh vazir o‘rinbosari — investitsiyalar va tashqi savdo vaziri Jamshid Xo‘jayev va Qirg‘izistonning O‘zbekistondagi elchisi Muso Jamanbayev o‘rtasidagi uchrashuvda erishilgan.
-
-42 000 dollarlik sport elektromobili
+— 20 yildan beri sartaroshlik qilib kelaman. Oddiy ishchilar oilasidan chiqqanmiz. Biznesmenlar avlodi emasman. Taqdir ekan, bir yili oyog‘im shikastlanib uyda yotib qoldim. O‘sha vaqtlarda Ibrohim Gulyamov videolarini internetdan ko‘rib motivatsiya olgandim. Nega men tadbirkor bo‘la olmayman deb savol bergandim o‘zimga.
 
 
-Xiaomi kompaniyasiga aloqador bo‘lgan China Car Custom startapi Ferrari’ga o‘xshab ketadigan  sport elektromobilini namoyish etdi.
+Akmal Ahrorxo‘jayev
+Alloh shifo berdi va men ham biznes-kouchingda ishtirok etish uchun keldim. Ishonsangiz, birinchi darsdan keyin uxlay olmaganman. O‘zimga sig‘may ketdim. O‘z biznesimni boshlashga otlandim. Yigirma yil yurib, atigi ikki oy kouching dasturda o‘qigan vaqtim shu salonni ochdim. Avvalo Alloh nasib qildi, sababchisi – ustozimiz Ibrohim Gulyamov bo‘ldi deb bilaman.
 
-SC01(Sport Car 01) deb ataluvchi ushbu avtomobilning vazni 1,3 tonna bo‘lib, narxi 42 000 dollarni tashkil etadi.
+“Komfort-zonaga tushib qolgandik...”
 
-Umumiy quvvati 435 ot kuchiga ega ikkita elektr motor o‘rnatilgan SC01 100 km/s tezlikka chiqish uchun atigi 3,9 soniya sarflaydi. Avtomobilni bir marta to‘liq quvvatlash orqali 500 kmgacha yurish mumkin.
+Revent arxitektura kompaniyasi asoschilari Farrux Hakimov va Abdulloh Abdusalomov:
 
-SC01’ni yetkazib berish 2023 yilning to‘rtinchi choragida boshlanishi ko‘zda tutilgan.
-
-Robot Lordlar palatasida nutq so‘zladi
+— Kouchinggacha ham biznesda 10 yillik tajribamiz bor edi. Ish yurib turibdi, yetarlicha vaqt va daromad ham bo‘lardi. Komfort-zonaga tushib qolgandik. Hatto studiyaga borib qo‘shiq kuylab ham ko‘rdik. 1-2 darslarda o‘qiganimizdan keyin esa miya “portladi”. Kengayish harakatiga tushib qoldik.
 
 
-Buyuk Britaniya Lordlar palatasida robot nutq so‘zladi. Ai-Da deb nomlanuvchi va Oksfordda Aidan Moyeller tomonidan yaratilgan texnologiya san’at, dizayn, moda va musiqa sanoati kelajagi bo‘yicha Aloqa va raqamli texnologiyalar qo‘mitasi oldida hisobot berdi. Qonunchilar robotga turli mazmundagi oldindan tayyorlangan savollarni berishgan. 
+Farrux Hakimov va Abdulloh Abdusalomov
+Yangi filialni o‘sha o‘quv vaqtida ochdik, ustozlarni, boshqa ishtirokchilarni, eski yo‘qolib ketgan mijozlarimizni ham taklif qildik. O‘sha kunning o‘zida buyurtma tushdi. Vaholanki, u kuni biz sotuv qilmayotgandik. Hozir xodimlarimiz soni uch barobar oshgan. Bu kattaroq va ko‘proq loyihalar bilan ishlash imkonini beradi.
+
+“Ming dollarni maqsad qilib, 10 ming dollarga chiqdim”
+
+“Novza eshiklari” brendi asoschisi Siddiq Umarov:
+
+— Oxirgi pulimni kouching darslari uchun to‘lashga rosa o‘ylanganman. Do‘stlarimga aytganimda “jinnimisan?!” deb tanqid qilishgan. Istihora namozini o‘qidim. Allohdan xayrli qilishini so‘rab duo qildim. Va darsga borishga qaror qildim.
+
+
+Siddiq Umarov
+Asli 2016 yildan beri eshik yasab, yetkazib berish bilan shug‘ullanar edik. Lekin rivojlanib ketmagan. Foydamiz dilerlarning qarzida qolib ketardi. Dars boshida “A” va “B” nuqtalarni belgilashimizni, hozir qancha daromad va kutilayotgan o‘zgarishni kiritishimizni so‘rashdi. Maqsadning kichikligini qarang, oylik daromadga 1000 dollar yozgan ekanman. Hali ikki oylik darslar tugamasdan “B” nuqta ko‘rinmay ketdi. Avvaliga 5000, hozir esa oylik 10 000 dollarlik daromadga ko‘tarildik, alhamdulillah.
+
+***
+
+“Jamoaga maqsadi bir insonlarni to‘plash kerak”
+
+PSG vakillarining aytishicha, kompaniyaning maqsadi – tadbirkorlarning biznesini yangi bosqichga ko‘tarish va shu orqali odamlar turmushini yaxshilash. Kompaniyaning faoliyat yo‘nalishlari haqida bilib olgach, Ibrohim Gulyamovdan o‘zining bu hayotdagi oliy maqsadi va yosh tadbirkorlarga tavsiyalari haqida so‘radik.
+
+
+
+“Oliy maqsadim – Allohning diydoriga yetish, Uni rozi qilish. Qolgan barcha amal-harakatlarimni shu yo‘lga to‘g‘rilayman. Jamoaga yordamchilar olayotganda ham maqsadlari bir manzilga eltadigan kishilarni kemaga taklif qilamiz. Shunda kuchlar bir niyatda birlashadi. Boshqa tomonga suzaman degan nizolar yuzaga kelmaydi.
+
+Biznesga kirmoqchi bo‘lgan yoshlarda bir kamchilik kuzatilib turadi. Ular bittada va tez muvaffaqiyatga erishishni xohlashadi. Ilm o‘rganib, tajriba va ko‘nikma evaziga yuqori pog‘onalarga ko‘tarilish mumkin.
+
+Zamon bilan hamnafas bo‘lish kerak. So‘nggi texnologiyalarni tadbirkorlikka joriy qilib borishni maslahat beraman. Ishga yollashda faqat qarindoshlargagina nomzod sifatida qarash – bizning hududlarda uchrab turadigan muammolardan. Munosib xodimni, ilmli va tajribali kadrlarni ishga olish rivojlanish ehtimolini oshiradi”, deydi u.
+
+“Har qancha katta moddiy taklif bo‘lsa ham, insonga zarar keltirishi mumkin bo‘lgan spirtli ichimliklar va tamaki savdosi, kredit bilan shug‘ullanadigan sohalarga maslahat ham bermaymiz, o‘zimiz shug‘ullanmaymiz ham”, deya qo‘shimcha qildi suhbatdoshimiz.
+
+***
+
+Biznesda ilmning o‘rni, foyda olish, sarmoyani to‘g‘ri ishlatish haqida tasavvur hosil qilmoqchi yoki tadbirkorlikka ilk qadamni qo‘yish arafasida bo‘lsangiz, ko‘rsatuvni albatta ko‘ring. Buning uchun yana boshqa rag‘bat ham bor.
+
+“Perfect Consulting Group” kompaniyasi “Biznes-klass” tomoshabinlari uchun maxsus yutuqlar taklif etadi. Ibrohim Gulyamovning 15-biznes kouchingi uchun 7 million so‘mlik vaucherlar taqdim etilmoqda. Birinchi murojaat qilgan 5ta talabgorgina foydalana oladi, xolos. Shoshiling, chegirmani qo‘lga kiritish uchun promokod – “biznesklass”.
+
+
+
+Bundan tashqari, YouTube'dagi video ostiga qoldirilgan eng qiziqarli 5ta izoh muallifiga yirik sarmoyachi, milliarder Uorren Baffet qalamiga mansub kitob hadya etiladi. G‘oliblar ikki haftadan so‘ng YouTube'da yozilgan o‘sha fikr ostiga rasmiy kanalimiz tomonidan yozilgan bildirish orqali e’lon qilinadi.
