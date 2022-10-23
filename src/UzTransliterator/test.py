@@ -15,8 +15,8 @@ obj = UzTransliterator.UzTransliterator()
 total_char, total_time = 0, 0
 total_wrong, total_correct = 0, 0
 for i in range(0,106):
-    from_ = "cyr"
-    to = "nlt"
+    from_ = "lat"
+    to = "cyr"
     with open(os.path.dirname(__file__)+'/../../test/'+str(i)+'_'+from_+'.txt', encoding='utf8') as f:
         text = f.read().rstrip()
         # print(text)

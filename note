@@ -1,10 +1,4 @@
--------test dataset source--------
--book
--news site (daryo.uz kun.uz, ... by categories)
--short story (ziyouz.uz, Uzbek literatury, Foreign literatury, ...)
--------------------------
-
-"10-marta" degan suzni lotindan cyrilga utkazganda "10 марта" bulib qoladi, aslida "10-marta" bulishi kerak edi.
+-"10-marta" degan suzni lotindan cyrilga utkazganda "10 марта" bulib qoladi, aslida "10-marta" bulishi kerak edi.
 Chunki kirilda sana yozganda chiziqcha olib tashlanadi.
 "mart, marta, martda" degan suzlarni "mart" deb tushunadi va sana deb gumon qilib chiziqchani uchiradi dastur.
 Bunday holat faqatgina oylar nomi bn boshlanadigan suz va undan oldin son kelsagina bu holat ruy beradi.
@@ -27,7 +21,7 @@ https://lex.uz/docs/-1625271 (lotin tilining imlo qoidalari)
 
 -------------Test results------------
 Direction: lat -> cyr
-Time execution 1.5275 seconds
+Time execution 1.6537 seconds
 Total wrong token 1674
 Total correct token 248467
 Wrong:   0.67 %
@@ -36,7 +30,7 @@ Standard Deviation, σ: 1.0682262391323
 Total characters  1627699
 ----------------------
 Direction: cyr -> lat
-Time execution 2.7846 seconds
+Time execution 1.7903 seconds
 Total wrong token 2180
 Total correct token 247310
 Wrong:   0.87 %
@@ -45,25 +39,25 @@ Standard Deviation, σ: 1.1896051949104
 Total characters  1733801
 -----------------------
 Direction: nlt -> lat
-Time execution 1.7223 seconds
-Total wrong token 449
-Total correct token 249154
-0.18 %
-99.82 %
-Standard Deviation, σ: 0.63410384200797
-Total characters  1737395
+Time execution 1.557 seconds
+Total wrong token 253
+Total correct token 249762
+0.1 %
+99.9 %
+Standard Deviation, σ: 0.30517589136546
+Total characters  1736983
 --------------------
 Direction: lat -> nlt
-Time execution 1.5924 seconds
-Total wrong token 643
-Total correct token 248960
-0.26 %
-99.74 %
-Standard Deviation, σ: 0.6143958080677
-Total characters  1652364
+Time execution 1.4532 seconds
+Total wrong token 232
+Total correct token 249783
+0.09 %
+99.91 %
+Standard Deviation, σ: 0.12601347778081
+Total characters  1651952
 -----------------------
 Direction: cyr -> nlt
-Time execution 1.9352 seconds
+Time execution 1.8148 seconds
 Total wrong token 2199
 Total correct token 247291
 0.88 %
@@ -72,7 +66,7 @@ Standard Deviation, σ: 1.2113696428153
 Total characters  1648786
 --------------------
 Direction: nlt -> cyr
-Time execution 1.7946 seconds
+Time execution 1.6697 seconds
 Total wrong token 1726
 Total correct token 248415
 0.69 %
@@ -80,4 +74,49 @@ Total correct token 248415
 Standard Deviation, σ: 1.0774937627795
 Total characters  1627625
 ---------------
+Test execution computer parameters:
+Windows 10 Pro 64 bit
+11th Gen Intel(R) Core(TM) i5-1135G7 @2.40GHz (8CPUs)
+Memory: 8192MB RAM
+NVIDIA GeForce MX350 5975MB
+--------------------
 
+--------Source of dataset------------
+-book
+-news site (daryo.uz kun.uz, ... by categories)
+-short story (ziyouz.uz, Uzbek literatury, Foreign literatury, ...)
+
+----Source of dataset in details-----
+ziyouz.uz manbasi
+--Kategory--
+O'zbek antologiya
+Jahon antologiya
+Til va adabiyot
+Texnologiya
+Tarix
+Talim
+Sanat
+Kimyo
+Geografiya
+Fizika
+Falsafa
+Din
+Biologiya
+Tibbiyot
+
+daryo.uz manbasi
+--categories---
+MAHALLIY
+DUNYO
+PUL
+MADANIYAT
+SPORT
+
+kun.uz manbasi
+UZBEKISTON
+JAHON
+IQTISODIYOT
+JAMIYAT
+FAN-TEXNIKA
+SPORT
+--------------------------

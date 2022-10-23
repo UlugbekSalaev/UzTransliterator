@@ -877,7 +877,7 @@ class UzTransliterator:
                             if word[i] in ['Ё', 'Ю', 'Я', 'ё', 'ю', 'я']:  # cyr_rule3 //'Е', 'е',
                                 cnv_word += self.__cyr_rule3(word, i)
                                 catch_in_rule = True
-                        if from_ in ["lat", "nlt"]:
+                        if from_ in ["lat", "nlt"] and to == "cyr":
                             if word[i] in ['e', 'E']:  # lat_rule1
                                 cnv_word += self.__lat_rule1(word, i)
                                 catch_in_rule = True
@@ -891,13 +891,13 @@ class UzTransliterator:
         if to in ["cyr"]:
             self.__check_change_date_to_cyr(cnv_words)  # latin->cyrill o'girilganda sanalar oldiga chiziq o'chiriladi: 2021-yil 10-mart -> 2021 йил 10 март
 
-        if to in ["lat", "nlt"]:
+        if from_ == "cyr" and to in ["lat", "nlt"]:
             self.__check_change_date_to_lat(cnv_words)  # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
             self.__check_change_second_uppercase(cnv_words)  # latin va newLatinda Birinchidagi harf katta bulsa SHamol shaklida qaytganda Shamol qilib yuborish uchun
 
         text = ' '.join(cnv_words)  # return as a list // return cnv_words
 
-        if to in ["lat", "nlt"]:
+        if from_ == "cyr" and to in ["lat", "nlt"]:
             text = text.replace(" \*-", "-")  # date dagi uzgarihslar uchun
 
         return text
