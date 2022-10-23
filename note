@@ -20,6 +20,8 @@ https://en.wikipedia.org/wiki/Uzbek_alphabet
 https://lex.uz/docs/-1625271 (lotin tilining imlo qoidalari)
 
 -------------Test results------------
+Document count: 105 for each script.
+
 Direction: lat -> cyr
 Time execution 1.6537 seconds
 Total wrong token 1674

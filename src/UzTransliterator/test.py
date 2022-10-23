@@ -4,13 +4,13 @@ import time
 
 obj = UzTransliterator.UzTransliterator()
 
-# while True:
-#     lang1 = input("lang1=")
-#     lang2 = input("lang2=")
-#     w = ""
-#     while w != "stop":
-#         w = input('Suz=')
-#         print(obj.transliterate(w, from_=lang1, to=lang2))
+while True:
+    lang1 = input("lang1=")
+    lang2 = input("lang2=")
+    w = ""
+    while w != "stop":
+        w = input('Suz=')
+        print(obj.transliterate(w, from_=lang1, to=lang2))
 
 total_char, total_time = 0, 0
 total_wrong, total_correct = 0, 0
