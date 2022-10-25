@@ -11,7 +11,16 @@
   </p>
 </div>
 
-
+Feel free to use the tools presented in this project, a paper about more details on creation and usage <a href='http://www.grupolys.org/biblioteca/SalKurGom2022b.pdf'>here</a>.<br>
+If you find it useful, plese make sure to cite the paper:
+```
+@article{salaev2022machine,
+  title={A machine transliteration tool between Uzbek alphabets},
+  author={Salaev, Ulugbek and Kuriyozov, Elmurod and G{\'o}mez-Rodr{\'\i}guez, Carlos},
+  journal={arXiv preprint arXiv:2205.09578},
+  year={2022}
+}
+```
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
