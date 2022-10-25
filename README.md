@@ -7,7 +7,7 @@
 <div align="center">
   <h3 align="center">UzTransliterator | State-of-the-art machine transliteration tool for Uzbek language, Cyrillic<>Latin<>NewLatin</h3>
   <p align="center">
-    The main goal of this paper is to present a state-of-the-art machine transliteration tool between three common scripts used in low-resource Uzbek language: old Cyrillic, currently official Latin, and newly announced New-Latin alphabets, which was created using a combination of rule-based and statistical approaches. The created tool is available as an open-source Python package, as well as a web-based application including a public API
+    The main goal of this paper is to present a state-of-the-art machine transliteration tool between three common scripts used in low-resource Uzbek language: old Cyrillic, currently official Latin, and newly announced New-Latin alphabets, which was created using a combination of rule-based and statistical approaches. The created tool is available as an open-source Python package, as well as a web-based application including a public API.
   </p>
 </div>
 
