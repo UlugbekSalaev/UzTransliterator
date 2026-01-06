@@ -760,6 +760,28 @@ class UzTransliterator:
 
         return False
 
+    def __normalize_quotes(self, cnv_words: list):
+        """
+        Normalizes quotes when transliterating from Latin to Cyrillic.
+        It replaces standard double quotes '"' with opening « and closing » marks.
+    
+        Example:
+            Latin: "\"Siti\"da yirik g‘alaba, \"Real\" futbolchilari Alonsoni qutqardi"
+            Cyrillic: "«Сити»да йирик ғалаба, «Реал» футболчилари Алонсони қутқарди"
+        """
+        opened = False
+        for i in range(len(cnv_words)):
+            # We use a while loop in case a single 'word' has multiple quotes 
+            while '"' in cnv_words[i]:
+                if not opened:
+                    cnv_words[i] = cnv_words[i].replace('"', '«', 1)
+                    opened = True
+                else:
+                    cnv_words[i] = cnv_words[i].replace('"', '»', 1)
+                    opened = False
+            
+        return cnv_words
+
     def transliterate(self, text, from_: str = 'cyr', to: str = 'lat'):
         # kirildan lotinga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki qoidalarga buysunmaydigan joylari bor
         # lotindan kirilga o'tilganda cyr_exwords.csv dagi bazadan foydalanamiz, chunki bularni qoida bilan chiqarib bo'lmaydi, ц,ь,ъ,я belgilarini qo'yishni iloji yuq
@@ -785,9 +807,13 @@ class UzTransliterator:
             text = text.replace("Gʻ", "G‘")
             text = text.replace("Oʻ", "O‘")
 
+            text = text.replace("\\'", "’")
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
             text = text.replace("ʼ", "’")  # boshqa belgilarni ъ ni kodiga utirish
             # text = text.replace("’", "’")  # boshqa belgilarni ъ ni kodiga utirish
+            text = text.replace("`","’")
+            text = text.replace("ʻ","’")
+
 
         if from_ == "nlt":
             text = text.replace("'", "’")  # boshqa belgilarni ъ ni kodiga utirish
@@ -859,7 +885,13 @@ class UzTransliterator:
                         # print(i, j, "chunk1=", chunk)
 
                         if chunk in sc_map:
-                            cnv_word += sc_map[chunk]
+                            if chunk == "’":
+                                if word.isupper():
+                                    cnv_word += 'Ъ'
+                                else:
+                                    cnv_word += sc_map[chunk]
+                            else:
+                                cnv_word += sc_map[chunk]
                             # print("cnv2="+cnv_word)
                             found = True
                             i += j
@@ -890,6 +922,7 @@ class UzTransliterator:
 
         if to in ["cyr"]:
             self.__check_change_date_to_cyr(cnv_words)  # latin->cyrill o'girilganda sanalar oldiga chiziq o'chiriladi: 2021-yil 10-mart -> 2021 йил 10 март
+            self.__normalize_quotes(cnv_words)
 
         if from_ == "cyr" and to in ["lat", "nlt"]:
             self.__check_change_date_to_lat(cnv_words)  # kiril->latin o'girilganda sanalar oldiga chiziqcha qo'yiladi: 2021 йил 10 март -> 2021-yil 10-mart
