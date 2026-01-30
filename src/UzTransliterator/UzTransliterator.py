@@ -728,14 +728,18 @@ class UzTransliterator:
 
     def __remove_symbols_starting(self, word: str, i: int):  # delete starting symbols to correctly convert of (endi  -> (энди
         ni = i  # temp variable
+        wordCopy = word # temp variable
+
         for ind in range(ni):
-            if not word[ind].isalpha():
+            if not wordCopy[ind].isalpha():
                 i -= 1
                 word = word[1:]
             else:
                 break
-        for ind in range(len(word)-1, i,  -1):
-            if not word[ind].isalpha():
+        
+        wordCopy = word
+        for ind in range(len(wordCopy)-1, i,  -1):
+            if not wordCopy[ind].isalpha():
                 word = word[:-1]
             else:
                 break
